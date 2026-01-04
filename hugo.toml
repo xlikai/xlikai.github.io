@@ -1,0 +1,17 @@
+```toml
+baseURL = 'https://xlikai.github.io/'
+languageCode = 'zh-cn'
+title = 'VSAT的探索'
+theme = 'PaperMod'
+
+[params]
+  env = 'production'
+  title = '在VSAT的MY'
+  description = '记录VSAT的MY的成长历程'
+  author = 'xlikai'
+    [params.homeInfoParams]
+        Title = "你好，欢迎来到我的博客 👋"
+        Content = "这里主要记录我对算法的研究、Linux使用心得。"
+    [params.labels]
+        text = "Xlikai Home"
+```
