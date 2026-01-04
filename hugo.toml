@@ -1,7 +1,6 @@
-```toml
 baseURL = 'https://xlikai.github.io/'
 languageCode = 'zh-cn'
-title = 'VSAT的探索'
+title = 'xlikai 的技术探索博客'
 theme = 'PaperMod'
 
 [params]
@@ -14,4 +13,3 @@ theme = 'PaperMod'
         Content = "这里主要记录我对算法的研究、Linux使用心得。"
     [params.labels]
         text = "Xlikai Home"
-```
