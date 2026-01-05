@@ -35,11 +35,21 @@ theme = 'PaperMod'
     home = ["HTML", "RSS", "JSON"]
 
 [[menu.main]]
-    name = "🔍 搜索"
-    url = "search"
-    weight = 10
-
-[[menu.main]]
-    name = "📚 文章"
+    name = "学习笔记"
     url = "posts"
     weight = 20
+
+[[menu.main]]
+    name = "资源链接"
+    url = "links"
+    weight = 30
+
+[[menu.main]]
+    name = "每月记录"
+    url = "monthly"
+    weight = 40
+
+[[menu.main]]
+    name = " 关于 "
+    url = "about"
+    weight = 50

@@ -1,89 +1,137 @@
-/* 1. 锁定首页列表图容器 */
+/* ==================== 文章封面图样式 ==================== */
+/* 1. 首页列表图容器 - 统一尺寸和布局 */
 figure.entry-cover {
-    display: flex ;
-    justify-content: center ;
-    max-height: 180px ; /* 强制限制容器高度，你可以根据需要改 */
-    overflow: hidden ;
-    background: #f3f1ed ; 
-    margin: 0 0 15px 0 ;
+    display: flex;                /* 启用弹性布局，让子元素（图片）支持flex对齐属性 */
+    justify-content: center;      /* 弹性布局下，图片在容器内水平居中显示 */
+    max-height: 150px;            /* 限制容器最大高度为150px，防止图片过高撑乱列表布局 */
+    overflow: hidden;             /* 溢出隐藏：超出容器150px高度的部分隐藏，仅显示容器内区域 */
+    background: #f3f1ed;          /* 容器背景设为浅米色，图片加载前/留白处更美观，统一视觉 */
+    margin: 0 0 15px 0;           /* 容器外边距：上下0，底部15px，右侧0 → 与下方文章标题/内容分隔 */
 }
 
-/* 2. 锁定图片本身 */
+/* 2. 封面图片样式 - 保证完整不拉伸 */
 figure.entry-cover img {
-    height: 280px ;
-    width: auto ; /* 宽度自适应，防止拉伸变形 */
-    object-fit: contain ; /* 核心：保证图片内容不被裁剪且完整 */
-    margin: 0 ;
+    height: 250px;                /* 强制图片高度为250px（大于容器150px），配合object-fit实现完整显示 */
+    width: auto;                  /* 宽度根据图片原始宽高比自动计算，彻底避免拉伸变形 */
+    object-fit: contain;          /* 核心：图片完整适配容器，不裁剪、不拉伸，多余区域显示容器背景色 */
+    margin: 0;                    /* 清除图片默认外边距，避免额外间距导致布局偏移 */
 }
 
-/* 3. 详情页（点进去后）顶部的封面图限制 */
+/* 3. 详情页封面图 - 放宽高度限制（仅详情页生效） */
 .post-single figure.entry-cover {
-    max-height: 400px ;
+    max-height: 400px;            /* 详情页封面容器最大高度放宽至400px，展示更大的图片 */
 }
 .post-single figure.entry-cover img {
-    height: 400px ;
+    height: 400px;                /* 详情页图片高度匹配容器，保证完整显示且尺寸更大 */
 }
 
+/* ==================== 导航栏 + 搜索框样式 ==================== */
+/* 1. 导航栏全局布局 - 保证Logo/搜索框/菜单横向排列 */
+.nav {
+    display: flex;                /* 导航栏启用弹性布局，子元素（Logo/搜索框/菜单）横向排列 */
+    justify-content: space-between; /* 弹性布局下，Logo居左、菜单居右，中间留空给搜索框 */
+    align-items: center;          /* 所有子元素在导航栏内垂直居中，保证视觉对齐 */
+    padding: 5px 15px;             /* 导航栏内边距：上下，左右 → 避免内容贴边，提升美观度 */
+    max-width: 2000px;            /* 导航栏最大宽度限制为200px，大屏下不无限拉伸 */
+    margin: 0 auto;               /* 导航栏水平居中，适配不同屏幕宽度 */
+}
 
-
-/* 首页大搜索框容器 */
+/* 2. 首页搜索框容器 - 固定在导航栏中间，保证显示 */
 .home-search {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
+    flex: 1;                      /* 占据导航栏Logo和菜单之间的所有剩余空间 */
+    display: flex;                /* 容器内启用弹性布局，让表单居中 */
+    justify-content: center;      /* 表单在容器内水平居中 */
+    margin: 0 10px;               /* 左右各留30px间距，防止搜索框与Logo/菜单紧贴 */
+    max-width: 600px;             /* 限制搜索框容器最大宽度，避免大屏下搜索框过长 */
 }
 
+/* 3. 搜索框表单样式 - 优化圆角+间距，保证可见 */
 .home-search form {
-    display: flex;
-    align-items: center;
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    padding: 5px 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;                /* 表单内弹性布局，输入框和按钮横向排列 */
+    align-items: center;          /* 输入框和按钮垂直居中，避免高度不一致 */
+    background: var(--code-bg);   /* 表单背景色继承网站代码块背景色，保证风格统一 */
+    border: 1px solid var(--border); /* 表单边框：1px实线，颜色继承网站全局边框色 */
+    border-radius: 20px;          /* 表单圆角20px，弱化直角（可调整数值改变圆润度） */
+    padding: 3px 12px;            /* 缩减内边距，降低整体高度（原3px 12px保留，高度核心靠height控制） */
+    width: 100%;                  /* 表单宽度铺满父容器 */
+    transition: all 0.3s ease;    /* 所有样式变化平滑过渡 */
+    height: 50px;                 /* 强制表单高度，避免高度过大（关键！） */
+    box-sizing: border-box;      
+    max-width: 500px;             /* 新增：表单默认宽度350px，聚焦时加宽，而非缩窄 */
+    margin: 0 auto;               /* 新增：表单在容器内居中，避免左对齐 */
 }
 
-/* 悬停和点击时的动态效果 */
+/* 4. 搜索框聚焦动效 - 增强反馈（表单内任意元素聚焦时触发） */
 .home-search form:focus-within {
-    border-color: var(--tertiary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transform: translateY(-2px); /* 轻微上浮 */
+    border-color: var(--tertiary); /* 聚焦时边框色切换为网站第三主题色，提示激活状态 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 阴影加深：模糊12px，透明度10% → 增强立体感 */
+    transform: translateY(-1px);  /* 表单轻微向上偏移1px，模拟“浮起”效果，交互更生动 */
+    max-width: 600px;
 }
 
+/* 5. 搜索输入框 - 修复宽度抢占+高度问题【核心修复】 */
 .home-search input {
-    width: 180px; /* 初始宽度 */
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--primary) !important;
-    caret-color: var(--secondary);
-    font-size: 16px;
-    padding: 8px 10px;
-    transition: width 0.3s ease;
+    flex: 1;                      /* 弹性占满剩余空间，给按钮留宽度 */
+    background: transparent !important; /* 强制透明背景，覆盖浏览器默认/其他样式的白色背景 */
+    border: none;                 /* 清除输入框默认边框 */
+    outline: none;                /* 清除聚焦时的默认外边框 */
+    color: var(--primary) !important; /* 强制输入文字颜色为网站主色调 */
+    caret-color: var(--secondary); /* 输入光标颜色设为网站次要色调 */
+    font-size: 18px;              /* 缩小字体，降低高度*/
+    padding: 4px 8px;             /* 内边距适配字体大小，不拥挤 */
+    transition: all 0.3s ease;    /* 宽度等样式变化平滑过渡 */
+    appearance: none;             /* 清除浏览器默认输入框样式 */
+    -webkit-appearance: none;     /* 兼容Webkit内核浏览器 */
+    height: 100%;                 /* 输入框高度铺满表单，垂直对齐 */
+    box-sizing: border-box;       /* 内边距计入高度，避免溢出 */
 }
 
-/* 点击后自动延长 */
-.home-search input:focus {
-    width: 300px;
+/* 6. 兼容Webkit浏览器自动填充背景（解决黄色/白色填充背景问题） */
+.home-search input:-webkit-autofill,
+.home-search input:-webkit-autofill:hover,
+.home-search input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--primary); /* 强制自动填充时文字颜色不变 */
+    -webkit-box-shadow: 0 0 0px 1000px var(--code-bg) inset; /* 用代码块背景色填充输入框，覆盖默认填充色 */
+    transition: background-color 5000s ease-in-out 0s; /* 延迟5000秒触发背景色变化，等效禁用自动填充背景 */
 }
 
+/* 8. 搜索按钮样式（修复图标分离） */
 .home-search button {
-    background: none;
-    border: none;
-    color: var(--secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
+    background: none;             /* 清除按钮默认背景色 */
+    border: none;                 /* 清除按钮默认边框 */
+    color: var(--secondary);      /* 按钮图标颜色继承网站次要色调 */
+    cursor: pointer;              /* 鼠标悬停时显示手型 */
+    display: flex;                /* 弹性布局，保证图标居中 */
+    align-items: center;          /* 图标垂直居中 */
+    padding: 0 8px;               /* 缩减按钮内边距，只保留左右8px，降低宽度 */
+    font-size: 16px;              /* 图标大小适配 */
+    height: 100%;                 /* 按钮高度铺满表单，垂直对齐 */
+    flex-shrink: 0;               /* 按钮不收缩，强制保留宽度，避免被输入框挤走 */
 }
 
-/* 顺便优化一下占位符(Placeholder)的颜色 */
-.home-search input::placeholder { 
-    color: var(--secondary);
-    opacity: 0.6;
-}
-
+/* 9. 搜索按钮悬停效果 */
 .home-search button:hover {
-    color: var(--tertiary);
+    color: var(--tertiary);       /* 悬停时按钮颜色切换为网站第三主题色 */
+}
+
+/* 10. 输入框占位符样式优化 */
+.home-search input::placeholder {
+    color: var(--secondary);      /* 占位符文字颜色继承次要色调 */
+    opacity: 0.6;                 /* 透明度60%，区分占位符和输入内容 */
+    font-size: 14px;              /* 占位符字体匹配输入框，降低高度 */
+}
+
+/* 11. 菜单布局优化 */
+#menu {
+    display: flex;                /* 菜单项横向排列 */
+    gap: 15px;                    /* 菜单项之间的间距15px */
+    list-style: none;             /* 清除列表默认圆点样式 */
+    margin: 0;                    /* 清除列表默认外边距 */
+    padding: 0;                   /* 清除列表默认内边距 */
+    white-space: nowrap;          /* 强制菜单项不换行 */
+}
+
+/* 12. 隐藏首页菜单栏原有搜索按钮 */
+.home .menu #menu li:nth-child(1) {
+    display: none;                /* 隐藏首页菜单列表第一个li（原搜索按钮） */
 }

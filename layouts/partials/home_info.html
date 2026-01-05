@@ -7,16 +7,6 @@
         {{ .Content | markdownify }}
     </div>
 
-    <div class="home-search">
-        <!-- action 指向你的搜索页面，method="get" 会把关键词放在网址里 (?q=xxx) -->
-        <form action="{{ "search" | absURL }}" method="get">
-            <input type="text" name="q" placeholder="搜索笔记..." required>
-            <button type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
-        </form>
-    </div>
-
     <footer class="entry-footer">
         {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
     </footer>
