@@ -1,15 +1,40 @@
 baseURL = 'https://xlikai.github.io/'
 languageCode = 'zh-cn'
-title = 'xlikai 的技术探索博客'
+title = 'xlikai的博客'
 theme = 'PaperMod'
 
 [params]
-  env = 'production'
-  title = '在VSAT的MY'
-  description = '记录VSAT的MY的成长历程'
-  author = 'xlikai'
+    env               = 'production'
+    defaultTheme      = 'auto'
+    disableThemeToggle = false  # 如果设为 true，读者就不能自己切换深色/浅色模式了，建议设为 false
+    author            = 'xlikai'
+    description       = '记录VSAT的成长历程'
+
     [params.homeInfoParams]
-        Title = "你好，欢迎来到我的博客 👋"
-        Content = "这里主要记录我对算法的研究、Linux使用心得。"
-    [params.labels]
-        text = "Xlikai Home"
+        Title = "你好，欢迎来到xlikai的博客 👋"
+        Content = "这里主要记录我对算法的研究、Linux使用心得和日常的学习。"
+    
+    [params.label]
+        text = "Xlikai Home"    # 网页左上角显示的名称
+
+    [params.fuseOpts]
+        isCaseSensitive = false
+        shouldSort = true
+        location = 0
+        distance = 1000
+        threshold = 0.4
+        minMatchCharLength = 0
+        keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+    name = "🔍 搜索"
+    url = "search" # 这里对应的是 content/search.md
+    weight = 10
+
+[[menu.main]]
+    name = "📚 文章"
+    url = "posts"
+    weight = 20
