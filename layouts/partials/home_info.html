@@ -1,0 +1,21 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+
+    <div class="home-search">
+        <form action="{{ "search" | absURL }}" method="get">
+            <input type="text" name="q" placeholder="在此搜索笔记 (例如: Linux, DL...)" focus>
+            <button type="submit">搜索</button>
+        </form>
+    </div>
+
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    </footer>
+</article>
+{{- end -}}
