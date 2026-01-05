@@ -1,5 +1,5 @@
 ---
-title: "我的学习笔记"
+title: "Linux学习笔记"
 date: 2026-01-04T15:22:23+08:00
 draft: false             #草稿设置，防止还没写完的内容被意外发布到网上
 tags: ["Deeplearning","Linux","Python","Env"]
@@ -8,8 +8,7 @@ author: "XY"
 cover:
   image: "linux.png" # 图片路径。如果 relative 是 false，则从 static/ 开始算
   alt: "Linux选择"         # 图片加载失败时显示的文字，对 SEO 友好
-  caption: "" # 图片下方的说明文字
-  relative: false
+  relative: true
 ---
 
 

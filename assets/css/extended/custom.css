@@ -1,0 +1,89 @@
+/* 1. 锁定首页列表图容器 */
+figure.entry-cover {
+    display: flex ;
+    justify-content: center ;
+    max-height: 180px ; /* 强制限制容器高度，你可以根据需要改 */
+    overflow: hidden ;
+    background: #f3f1ed ; 
+    margin: 0 0 15px 0 ;
+}
+
+/* 2. 锁定图片本身 */
+figure.entry-cover img {
+    height: 280px ;
+    width: auto ; /* 宽度自适应，防止拉伸变形 */
+    object-fit: contain ; /* 核心：保证图片内容不被裁剪且完整 */
+    margin: 0 ;
+}
+
+/* 3. 详情页（点进去后）顶部的封面图限制 */
+.post-single figure.entry-cover {
+    max-height: 400px ;
+}
+.post-single figure.entry-cover img {
+    height: 400px ;
+}
+
+
+
+/* 首页大搜索框容器 */
+.home-search {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-search form {
+    display: flex;
+    align-items: center;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 悬停和点击时的动态效果 */
+.home-search form:focus-within {
+    border-color: var(--tertiary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px); /* 轻微上浮 */
+}
+
+.home-search input {
+    width: 180px; /* 初始宽度 */
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--primary) !important;
+    caret-color: var(--secondary);
+    font-size: 16px;
+    padding: 8px 10px;
+    transition: width 0.3s ease;
+}
+
+/* 点击后自动延长 */
+.home-search input:focus {
+    width: 300px;
+}
+
+.home-search button {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+/* 顺便优化一下占位符(Placeholder)的颜色 */
+.home-search input::placeholder { 
+    color: var(--secondary);
+    opacity: 0.6;
+}
+
+.home-search button:hover {
+    color: var(--tertiary);
+}

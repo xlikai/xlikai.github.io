@@ -1,0 +1,49 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+        {{- partial "translation_list.html" . -}}
+    </div>
+    {{- end }}
+</header>
+
+<div id="searchbox">
+    <input id="searchInput" autofocus placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}"
+        aria-label="search" type="search" autocomplete="off" maxlength="64">
+    <ul id="searchResults" aria-label="search results"></ul>
+</div>
+
+<script>
+    window.addEventListener('load', () => { // 换成 load 事件，确保所有资源加载完
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('q');
+        
+        if (query) {
+            // 给搜索引擎一点点启动时间（150ms）
+            setTimeout(() => {
+                const searchBox = document.getElementById('searchInput');
+                if (searchBox) {
+                    searchBox.value = query;
+                    // 同时发送 input 和 keyup 信号，确保彻底激活搜索引擎
+                    searchBox.dispatchEvent(new Event('input', { bubbles: true }));
+                    searchBox.dispatchEvent(new Event('keyup', { bubbles: true }));
+                    searchBox.focus();
+                }
+            }, 150); 
+        }
+    });
+</script>
+{{- end }}{{/* end main */}}

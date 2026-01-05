@@ -10,17 +10,18 @@ theme = 'PaperMod'
     author            = 'xlikai'
     description       = '记录VSAT的成长历程'
     
-    assets = { disableHLJS = false } # 确保资源加载开启
-    # 告诉主题加载自定义 css
-    customCSS = ["css/extended.css"]
+    # 开启代码高亮和搜索
+    assets = { disableHLJS = false } 
+    ShowCodeCopyButtons = true # 既然是深度学习博客，建议开启代码一键复制
 
     [params.homeInfoParams]
         Title = "你好，欢迎来到xlikai的博客 👋"
         Content = "这里主要记录我对算法的研究、Linux使用心得和日常的学习。"
     
     [params.label]
-        text = "Xlikai Home"    # 网页左上角显示的名称
+        text = "Xlikai Home"
 
+    # 搜索参数
     [params.fuseOpts]
         isCaseSensitive = false
         shouldSort = true
@@ -35,12 +36,10 @@ theme = 'PaperMod'
 
 [[menu.main]]
     name = "🔍 搜索"
-    url = "search" # 这里对应的是 content/search.md
+    url = "search"
     weight = 10
 
 [[menu.main]]
     name = "📚 文章"
     url = "posts"
     weight = 20
-
-

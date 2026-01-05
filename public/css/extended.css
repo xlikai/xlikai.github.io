@@ -1,59 +1,27 @@
-/* 搜索组件容器 */
-.home-search {
-    margin: 30px auto;
-    text-align: center;
-    max-width: 600px;
+/* 针对首页列表的 figure 容器 */
+figure.entry-cover {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-height: 250px !important; /* 强制限制容器高度 */
+    overflow: hidden !important;
+    background-color: #f0f0f0 !important; /* 给背景个颜色，一眼就能看出生效没 */
+    margin: 0 0 15px 0 !important;
 }
 
-.home-search form {
-    display: flex;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 30px;
-    overflow: hidden;
-    border: 1px solid var(--border);
+/* 针对容器内的 img 标签 */
+figure.entry-cover img {
+    height: 250px !important; /* 强制高度 */
+    width: auto !important;    /* 宽度自适应，防止拉伸 */
+    object-fit: contain !important; /* 确保图片内容完整显示 */
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.home-search input {
-    flex: 1;
-    padding: 15px 25px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background: var(--code-bg);
-    color: var(--primary);
+/* 针对文章详情页内部的图片 */
+.post-single figure.entry-cover {
+    max-height: 400px !important;
 }
-
-.home-search button {
-    padding: 0 25px;
-    background: var(--tertiary);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* 1. 限制首页文章列表的封面图高度 */
-.entry-cover img {
-    max-height: 100px; /* 首页预览图不要太高 */
-    object-fit: cover; /* 自动裁剪，保持比例不拉伸 */
-    width: 100%;
-}
-
-/* 2. 限制文章详情页顶部的封面图高度 */
-.post-single .post-content img, 
-.post-single .post-entry img,
-.post-single .entry-cover img {
-    max-height: 200px; /* 文章内封面图最大高度 */
-    width: auto;      /* 宽度自动 */
-    margin: 0 auto;   /* 居中显示 */
-    display: block;
-    border-radius: 8px; /* 圆角增加高级感 */
-}
-
-/* 3. 限制文章正文内普通图片的大小 */
-article img {
-    max-width: 45% !important; /* 正文图片占屏宽 85% 即可 */
-    height: auto;
-    margin: 20px auto;
-    border: 1px solid var(--border);
+.post-single figure.entry-cover img {
+    height: 400px !important;
 }
