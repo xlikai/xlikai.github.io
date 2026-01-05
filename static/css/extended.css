@@ -1,0 +1,24 @@
+/* 搜索框基础样式 */
+.nav-search {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.nav-search input {
+    width: 120px; /* 初始宽度 */
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: width 0.3s ease-in-out; /* 增加延长的平滑动画 */
+    outline: none;
+    background: var(--theme); /* 跟随主题颜色 */
+    color: var(--primary);
+}
+
+/* 当鼠标点击输入框时，自动变长 */
+.nav-search input:focus {
+    width: 250px; /* 延长后的宽度 */
+    border-color: var(--secondary);
+}

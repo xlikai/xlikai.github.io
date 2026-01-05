@@ -1,17 +1,22 @@
 ---
 title: "我的学习笔记"
 date: 2026-01-04T15:22:23+08:00
-draft: true
+draft: false             #草稿设置，防止还没写完的内容被意外发布到网上
 tags: ["Deeplearning","Linux","Python","Env"]
 categories: ["技术笔记"]
 author: "XY"
+cover:
+  image: "linux.png" # 图片路径。如果 relative 是 false，则从 static/ 开始算
+  alt: "Linux选择"         # 图片加载失败时显示的文字，对 SEO 友好
+  caption: "" # 图片下方的说明文字
+  relative: false
 ---
 
 ```markdown
 ## 为什么选择 Linux 跑深度学习？
 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：
 
-### 一、 四种主流安装方案对比
+### 一、 四种主流安装方案
 | 安装方式 | 所需软件/硬件条件 | 优点 | 缺点 | 适用场景 |
 | :--- | :--- | :--- | :--- | :--- |
 | **1. WSL2** (Windows子系统) | Win10/11, 开启虚拟化, 建议16G内存 | 无需重启切换系统，文件互通，性能损耗极小 | GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 | **首选方案**：兼顾办公与深度学习开发 |
@@ -55,8 +60,6 @@ Docker容器在Linux上再运行一个操作系统，适合团队协作，不适
 无论用哪种方法，安装完Linux后，**不要**直接在系统环境装库。
     *   **必须安装**：**Miniconda** 或 **Anaconda**，建议结合**pixi**使用。
     *   **原因**：它能让你为每个项目创建独立的虚拟环境（例如：项目A用PyTorch 1.10，项目B用PyTorch 2.0，互不干扰）。
-
-
 
 ```
 

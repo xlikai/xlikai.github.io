@@ -9,6 +9,10 @@ theme = 'PaperMod'
     disableThemeToggle = false  # 如果设为 true，读者就不能自己切换深色/浅色模式了，建议设为 false
     author            = 'xlikai'
     description       = '记录VSAT的成长历程'
+    
+    assets = { disableHLJS = false } # 确保资源加载开启
+    # 告诉主题加载自定义 css
+    customCSS = ["css/extended.css"]
 
     [params.homeInfoParams]
         Title = "你好，欢迎来到xlikai的博客 👋"
@@ -38,3 +42,5 @@ theme = 'PaperMod'
     name = "📚 文章"
     url = "posts"
     weight = 20
+
+
