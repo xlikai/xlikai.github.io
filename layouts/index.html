@@ -1,0 +1,72 @@
+{{- define "main" }}
+<div class="column-container">
+    <!-- 左侧栏 -->
+    <aside class="sidebar-left">
+        <div class="card profile-card">
+            {{- if site.Params.authorAvatar }}
+            <img src="{{ site.Params.authorAvatar | absURL }}" class="avatar" alt="avatar">
+            {{- end }}
+            <h3>{{ site.Params.author }}</h3>
+            <div class="social-links">
+                {{- range site.Params.socialIcons }}
+                {{- if eq (lower .name) "github" }}
+                <a href="{{ .url | safeURL }}" target="_blank" rel="noopener">GitHub 仓库</a>
+                {{- end }}
+                {{- end }}
+            </div>
+            <div class="stats">
+                {{- $posts := where site.RegularPages "Section" "posts" -}}
+                {{- $wordCount := 0 -}}
+                {{- range $posts }}{{ $wordCount = add $wordCount .WordCount }}{{ end -}}
+                <p>笔记数: <span>{{ len $posts }}</span></p>
+                <p>总字数: <span>{{ $wordCount }}</span></p>
+            </div>
+        </div>
+        <div class="card tags-card">
+            <h4>分类</h4>
+            <ul class="tag-list">
+                {{- range .Site.Taxonomies.tags }}
+                <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }} <span>({{ .Count }})</span></a></li>
+                {{- end }}
+            </ul>
+        </div>
+    </aside>
+
+    <!-- 中间栏 -->
+    <main class="main-content">
+        {{- $posts := where site.RegularPages "Section" "posts" -}}
+        {{- $paginator := .Paginate $posts -}}
+        {{- range $paginator.Pages }}
+        <article class="post-entry card">
+            {{- partial "cover.html" (dict "cxt" . "IsHome" true) }}
+            <header class="entry-header"><h2>{{ .Title }}</h2></header>
+            <div class="entry-content"><p>{{ .Summary | truncate 150 }}</p></div>
+            <footer class="entry-footer">{{- partial "post_meta.html" . -}}</footer>
+            <a class="entry-link" href="{{ .Permalink }}"></a>
+        </article>
+        {{- end }}
+    </main>
+
+    <!-- 右侧栏 -->
+    <aside class="sidebar-right">
+        <div class="card recent-card">
+            <h4>最近更新</h4>
+            <ul>
+                {{- range first 5 (where site.RegularPages "Section" "posts") }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                {{- end }}
+            </ul>
+        </div>
+        <div class="card archive-card">
+            <h4>归档时间</h4>
+            <div class="archive-years">
+                {{- range site.RegularPages.GroupByDate "2006" -}}
+                {{- if and (ne .Key "0001") (gt .Key "2000") -}}
+                <a href="{{ "archives" | absURL }}" class="year-link">{{ .Key }} 年</a>
+                {{- end -}}
+                {{- end -}}
+            </div>
+        </div>
+    </aside>
+</div>
+{{- end }}

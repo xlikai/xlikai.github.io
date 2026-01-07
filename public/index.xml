@@ -69,15 +69,5 @@
 &lt;h4 id=&#34;2-双系统-windows--ubuntu--推荐专业开发者&#34;&gt;2. 双系统 (Windows + Ubuntu) —— &lt;strong&gt;推荐专业开发者&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;在硬盘上划出一块地给Linux，开机时选择进入哪个系统。&lt;/p&gt;</description>
     </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/archives/</guid>
-      <description>&lt;p&gt;title: &amp;ldquo;Archive&amp;rdquo;
-layout: &amp;ldquo;archives&amp;rdquo;
-url: &amp;ldquo;/archives/&amp;rdquo;
-summary: archives&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

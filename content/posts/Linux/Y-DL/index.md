@@ -2,7 +2,7 @@
 title: "Linux学习笔记"
 date: 2026-01-04T15:22:23+08:00
 draft: false             #草稿设置，防止还没写完的内容被意外发布到网上
-tags: ["Deeplearning","Linux","Python","Env"]
+tags: ["Linux"]
 categories: ["技术笔记"]
 author: "XY"
 cover:

@@ -11,7 +11,7 @@
 <meta name="description" content="记录VSAT的成长历程">
 <meta name="author" content="xlikai">
 <link rel="canonical" href="http://localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.494909638f9af04639b87797d0299b5414a95c759ff7090a2f76f3169463faf2.css" integrity="sha256-SUkJY4&#43;a8EY5uHeX0CmbVBSpXHWf9wkKL3bzFpRj&#43;vI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.67dde46ada548cb1facab1865dd1d98bd97dd9d03b1d72a63f900da7d2d44741.css" integrity="sha256-Z93katpUjLH6yrGGXdHZi9l92dA7HXKmP5ANp9LUR0E=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -92,7 +92,7 @@
   "description": "记录VSAT的成长历程",
   "logo": "http://localhost:1313/favicon.ico",
   "sameAs": [
-      
+      "https://github.com/xlikai"
   ]
 }
 </script>
@@ -158,23 +158,31 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>你好，欢迎来到xlikai的博客 👋</h1>
-    </header>
-    <div class="entry-content">
-        这里主要记录我对算法的研究、Linux使用心得和日常的学习。
-    </div>
+<main class="main">
+<div class="column-container">
+    
+    <aside class="sidebar-left">
+        <div class="card profile-card">
+            <img src="http://localhost:1313/img/avatar.jpg" class="avatar" alt="avatar">
+            <h3>xlikai</h3>
+            <div class="social-links">
+                <a href="https://github.com/xlikai" target="_blank" rel="noopener">GitHub 仓库</a>
+            </div>
+            <div class="stats"><p>笔记数: <span>1</span></p>
+                <p>总字数: <span>149</span></p>
+            </div>
+        </div>
+        <div class="card tags-card">
+            <h4>分类</h4>
+            <ul class="tag-list">
+                <li><a href="http://localhost:1313/tags/linux/">Linux <span>(1)</span></a></li>
+            </ul>
+        </div>
+    </aside>
 
-    <footer class="entry-footer">
-        <div class="social-icons" >
-</div>
-
-    </footer>
-</article>
-
-<article class="post-entry"> 
+    
+    <main class="main-content">
+        <article class="post-entry card"> 
 <figure class="entry-cover">
             <img loading="lazy"
                 srcset='http://localhost:1313/posts/linux/y-dl/linux_hu_56db5eefc55445ff.png 360w,http://localhost:1313/posts/linux/y-dl/linux_hu_6dbfbb844fa48092.png 480w,http://localhost:1313/posts/linux/y-dl/linux_hu_69f61edd44ce3678.png 720w,http://localhost:1313/posts/linux/y-dl/linux.png 1057w'
@@ -183,19 +191,29 @@
                 width="1057" height="1280"
                 alt="Linux选择">
 </figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux学习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>为什么选择 Linux 跑深度学习？ 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：
-一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 首选方案：兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G&#43;), U盘启动盘 性能最强，完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 高性能需求：长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G&#43;内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡（极难配置显卡穿透），性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。
-硬件要求：普通的现代Windows电脑，只需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 深度学习优势：现在WSL2已完美支持NVIDIA CUDA。你可以在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 安装方法：在PowerShell执行 wsl --install，默认安装Ubuntu。 2. 双系统 (Windows &#43; Ubuntu) —— 推荐专业开发者 在硬盘上划出一块地给Linux，开机时选择进入哪个系统。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-01-04 15:22:23 +0800 CST'>January 4, 2026</span>&nbsp;·&nbsp;<span>XY</span></footer>
-  <a class="entry-link" aria-label="post link to Linux学习笔记" href="http://localhost:1313/posts/linux/y-dl/"></a>
-</article>
+            <header class="entry-header"><h2>Linux学习笔记</h2></header>
+            <div class="entry-content"><p><h2 id="为什么选择-linux-跑深度学习">为什么选择 Linux 跑深度学习？</h2>
+<p>在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：</p>
+<h3 id="一-四种主流安装方案">一、 四种主流安装方案 …</h3></p></div>
+            <footer class="entry-footer"><span title='2026-01-04 15:22:23 +0800 CST'>January 4, 2026</span>&nbsp;·&nbsp;<span>XY</span></footer>
+            <a class="entry-link" href="http://localhost:1313/posts/linux/y-dl/"></a>
+        </article>
+    </main>
+
+    
+    <aside class="sidebar-right">
+        <div class="card recent-card">
+            <h4>最近更新</h4>
+            <ul>
+                <li><a href="http://localhost:1313/posts/linux/y-dl/">Linux学习笔记</a></li>
+            </ul>
+        </div>
+        <div class="card archive-card">
+            <h4>归档时间</h4>
+            <div class="archive-years"><a href="http://localhost:1313/archives" class="year-link">2026 年</a></div>
+        </div>
+    </aside>
+</div>
     </main>
     
 <footer class="footer">

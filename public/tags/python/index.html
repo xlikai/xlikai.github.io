@@ -10,7 +10,7 @@
 <meta name="description" content="记录VSAT的成长历程">
 <meta name="author" content="xlikai">
 <link rel="canonical" href="http://localhost:1313/tags/python/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.f163d95d4113f97a9cc2e41cc1930d041e71165ff1c5285a5dbc0cea1fc6d0e8.css" integrity="sha256-8WPZXUET&#43;XqcwuQcwZMNBB5xFl/xxShaXbwM6h/G0Og=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.db7c3a20f9f9594039a94c07332d5efc768d0f6678b96e39af9195e54b66a50f.css" integrity="sha256-23w6IPn5WUA5qUwHMy1e/HaND2Z4uW45r5GV5UtmpQ8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -110,6 +110,15 @@
                 </button>
             </div>
         </div>
+
+        <div class="home-search">
+            <form action="http://localhost:1313/search" method="get">
+                <input type="text" name="q" placeholder="搜索笔记..." required>
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </form>
+        </div>
         <ul id="menu">
             <li>
                 <a href="http://localhost:1313/posts" title="学习笔记">
@@ -140,29 +149,6 @@
     Python
   </h1>
 </header>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover">
-            <img loading="lazy"
-                srcset='http://localhost:1313/posts/linux/y-dl/linux_hu_56db5eefc55445ff.png 360w,http://localhost:1313/posts/linux/y-dl/linux_hu_6dbfbb844fa48092.png 480w,http://localhost:1313/posts/linux/y-dl/linux_hu_69f61edd44ce3678.png 720w,http://localhost:1313/posts/linux/y-dl/linux.png 1057w'
-                src="http://localhost:1313/posts/linux/y-dl/linux.png"
-                sizes="(min-width: 768px) 720px, 100vw"
-                width="1057" height="1280"
-                alt="Linux选择">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux学习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>为什么选择 Linux 跑深度学习？ 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：
-一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 首选方案：兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G&#43;), U盘启动盘 性能最强，完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 高性能需求：长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G&#43;内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡（极难配置显卡穿透），性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。
-硬件要求：普通的现代Windows电脑，只需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 深度学习优势：现在WSL2已完美支持NVIDIA CUDA。你可以在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 安装方法：在PowerShell执行 wsl --install，默认安装Ubuntu。 2. 双系统 (Windows &#43; Ubuntu) —— 推荐专业开发者 在硬盘上划出一块地给Linux，开机时选择进入哪个系统。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-01-04 15:22:23 +0800 CST'>January 4, 2026</span>&nbsp;·&nbsp;<span>XY</span></footer>
-  <a class="entry-link" aria-label="post link to Linux学习笔记" href="http://localhost:1313/posts/linux/y-dl/"></a>
-</article>
     </main>
     
 <footer class="footer">

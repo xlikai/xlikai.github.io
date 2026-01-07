@@ -1,137 +1,338 @@
-/* ==================== 文章封面图样式 ==================== */
-/* 1. 首页列表图容器 - 统一尺寸和布局 */
-figure.entry-cover {
-    display: flex;                /* 启用弹性布局，让子元素（图片）支持flex对齐属性 */
-    justify-content: center;      /* 弹性布局下，图片在容器内水平居中显示 */
-    max-height: 150px;            /* 限制容器最大高度为150px，防止图片过高撑乱列表布局 */
-    overflow: hidden;             /* 溢出隐藏：超出容器150px高度的部分隐藏，仅显示容器内区域 */
-    background: #f3f1ed;          /* 容器背景设为浅米色，图片加载前/留白处更美观，统一视觉 */
-    margin: 0 0 15px 0;           /* 容器外边距：上下0，底部15px，右侧0 → 与下方文章标题/内容分隔 */
+/* ================================================================
+   1. 基础全局设置 (背景色统一与修复)
+   ================================================================ */
+:root {
+    /* 浅色模式保持你喜欢的设置 */
+    --theme: #f5f5f5;         /* 网页大背景 */
+    --card-bg: #fafafa;       /* 矩形框背景 */
+    --primary: #1d1e20;       /* 主文字 */
+    --secondary: #57606a;     /* 次文字 */
+    --border: #d0d7de;
+    --search-bg: #f2f2eb;     
+    --hover-bg: #f0f0f0;      /* 白天悬停：比 #fafafa 稍深一点 */
+    --tertiary: #0066cc;
+    --img-bg: #fafafa; /* 白天保持浅色 */
 }
 
-/* 2. 封面图片样式 - 保证完整不拉伸 */
-figure.entry-cover img {
-    height: 250px;                /* 强制图片高度为250px（大于容器150px），配合object-fit实现完整显示 */
-    width: auto;                  /* 宽度根据图片原始宽高比自动计算，彻底避免拉伸变形 */
-    object-fit: contain;          /* 核心：图片完整适配容器，不裁剪、不拉伸，多余区域显示容器背景色 */
-    margin: 0;                    /* 清除图片默认外边距，避免额外间距导致布局偏移 */
+/* 选择器能在你的网页触发夜晚颜色 */
+html[data-theme='dark'] {
+    --theme: #0d1117;           /* 大背景 */
+    --entry: #161b22;           /* 卡片背景 */
+    --card-bg: #161b22;         
+    --primary: #e3e3e3;         
+    --secondary: #bababa; 
+    --border: #30363d;          
+    --search-bg: #010409a6;       
+    --hover-bg: #d1d1d1;        /* 夜晚悬停：比卡片背景更深，实现你想要的“加深” */
+    --tertiary: #58a6ff;
+    --img-bg: #fefefeb7;
 }
 
-/* 3. 详情页封面图 - 放宽高度限制（仅详情页生效） */
-.post-single figure.entry-cover {
-    max-height: 400px;            /* 详情页封面容器最大高度放宽至400px，展示更大的图片 */
-}
-.post-single figure.entry-cover img {
-    height: 400px;                /* 详情页图片高度匹配容器，保证完整显示且尺寸更大 */
+body, html, .main {
+    background-color: var(--theme) !important; /* 全局背景色统一为主题色 */
+    transition: background 0.3s ease; /* 背景色切换动画 */
 }
 
-/* ==================== 导航栏 + 搜索框样式 ==================== */
-/* 1. 导航栏全局布局 - 保证Logo/搜索框/菜单横向排列 */
-.nav {
-    display: flex;                /* 导航栏启用弹性布局，子元素（Logo/搜索框/菜单）横向排列 */
-    justify-content: space-between; /* 弹性布局下，Logo居左、菜单居右，中间留空给搜索框 */
-    align-items: center;          /* 所有子元素在导航栏内垂直居中，保证视觉对齐 */
-    padding: 5px 15px;             /* 导航栏内边距：上下，左右 → 避免内容贴边，提升美观度 */
-    max-width: 2000px;            /* 导航栏最大宽度限制为200px，大屏下不无限拉伸 */
-    margin: 0 auto;               /* 导航栏水平居中，适配不同屏幕宽度 */
+/* ================================================================
+   2. 首页三栏布局 (仪表盘感：分离与间距)
+   ================================================================ */
+/* 首页主容器放宽 */
+.list .main {
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+    padding: 20px 10px;
+}
+/* 三栏布局：增加 gap 实现分离感 */
+.column-container {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;      /* 增加盒子之间的间距 */
+    width: 100%;
+}
+/* 左右侧边栏：固定宽度 + 粘性定位 */
+.sidebar-left, .sidebar-right {
+    width: 280px !important;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px; /* 距离顶部 20px 处停住 */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    z-index: 10;
+}
+/* 中间主内容区：增加盒子感 */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 文章卡片之间的上下间距 */
 }
 
-/* 2. 首页搜索框容器 - 固定在导航栏中间，保证显示 */
+/* 响应式 */
+@media screen and (max-width: 1100px) {
+    .column-container {flex-direction: column !important;}
+    .sidebar-left, .sidebar-right {width: 100% !important;position: static;}
+}
+/* ================================================================
+   3. 矩形框卡片样式 (Separated Boxes)
+   ================================================================ */
+.card, .post-entry.card {
+    background: var(--card-bg) !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+        transition: 
+        background-color 0.3s ease, 
+        color 0.3s ease, 
+        border-color 0.3s ease, 
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s ease;
+}
+/* 深色模式矩形背景设置 */
+html[data-theme='dark'] .card,
+html[data-theme='dark'] .post-entry.card {
+    background: var(--entry) !important; /* 深色模式使用 entry 变量 */
+    box-shadow: none; /* 如果需要移除阴影，在这里保留 */
+}
+
+/* 确保所有文字颜色跟随变量 */
+.card h3, .card h4, .card a, .card p, .card li, .stats p, .stats span {
+    color: var(--primary) !important;
+}
+.stats p span, .tag-list a span {
+    color: var(--secondary) !important;
+}
+
+/* 文章预览卡片特殊处理 */
+.post-entry.card { padding: 0 !important; overflow: hidden; }
+.post-entry .entry-header, 
+.post-entry .entry-content, 
+.post-entry .entry-footer {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* ================================================================
+   4. 图片样式模块
+   ================================================================ */
+/* 1. 统一图片容器设置 */
+.entry-cover, 
+.post-single .entry-cover {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--img-bg) !important; /* 使用独立的暖灰色变量 */
+    transition: background-color 0.3s ease;    /* 只有背景色参与过渡 */
+}
+
+/* 首页预览图高度与边距 */
+.entry-cover {
+    width: 100%;
+    height: 180px !important; /* 适当增加高度 */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    margin: 0; 
+    border-radius: 12px 12px 0 0;
+    transition: background-color 0.2s ease-in-out !important; 
+}
+
+/* 详情页顶部图高度 */
+.post-single .entry-cover {
+    width: 100%;
+    height: 350px !important; /* 设置一个固定高度防止无限放大 */
+    margin-bottom: 25px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 2. 图片本体显示规则 */
+.entry-cover img, 
+.post-single .entry-cover img {
+    /* 核心修改：不再强制 100%，而是限制最大尺寸 */
+    width: auto !important; 
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important; /* 绝对保证不裁剪 */
+    mix-blend-mode: normal !important;
+    filter: brightness(0.9);
+}
+
+/* 3. 夜晚模式下的图片滤镜 */
+html[data-theme='dark'] .entry-cover img,
+html[data-theme='dark'] .post-single .post-content img {
+    filter: brightness(0.8) contrast(1.1) !important;
+}
+
+/* 4. 详情页正文图片额外处理 */
+.post-single .post-content img {
+    max-height: 500px !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: contain !important;
+    padding: 10px;
+    background-color: var(--img-bg) !important; /* 正文图片也应用暖灰色底 */
+}
+
+/* 5. 交互效果 */
+.post-entry.card:hover .entry-cover img {
+    transform: scale(1.03);
+}
+/* ================================================================
+    5. 搜索框增强 (让它变明显) 
+    =============================================================*/
 .home-search {
-    flex: 1;                      /* 占据导航栏Logo和菜单之间的所有剩余空间 */
-    display: flex;                /* 容器内启用弹性布局，让表单居中 */
-    justify-content: center;      /* 表单在容器内水平居中 */
-    margin: 0 10px;               /* 左右各留30px间距，防止搜索框与Logo/菜单紧贴 */
-    max-width: 600px;             /* 限制搜索框容器最大宽度，避免大屏下搜索框过长 */
+    margin: 15px auto;
+    padding: 0 10px;
+    max-width: 600px; /* 限制一下最大宽度，防止太长 */
 }
 
-/* 3. 搜索框表单样式 - 优化圆角+间距，保证可见 */
 .home-search form {
-    display: flex;                /* 表单内弹性布局，输入框和按钮横向排列 */
-    align-items: center;          /* 输入框和按钮垂直居中，避免高度不一致 */
-    background: var(--code-bg);   /* 表单背景色继承网站代码块背景色，保证风格统一 */
-    border: 1px solid var(--border); /* 表单边框：1px实线，颜色继承网站全局边框色 */
-    border-radius: 20px;          /* 表单圆角20px，弱化直角（可调整数值改变圆润度） */
-    padding: 3px 12px;            /* 缩减内边距，降低整体高度（原3px 12px保留，高度核心靠height控制） */
-    width: 100%;                  /* 表单宽度铺满父容器 */
-    transition: all 0.3s ease;    /* 所有样式变化平滑过渡 */
-    height: 50px;                 /* 强制表单高度，避免高度过大（关键！） */
-    box-sizing: border-box;      
-    max-width: 500px;             /* 新增：表单默认宽度350px，聚焦时加宽，而非缩窄 */
-    margin: 0 auto;               /* 新增：表单在容器内居中，避免左对齐 */
+    background: var(--search-bg) !important; /* 使用专门的搜索框背景 */
+    border: 1px solid var(--border) !important;
+    height: 40px;
+    border-radius: 18px; /* 圆角*/
+    padding: 0px 15px;  /* 左右内边距；上下0，配合input的padding控顶部间距 */
+    box-sizing: border-box; /* 关键：让边框/内边距包含在height内，不溢出 */
+    display: flex; /* 弹性布局，让input和button横向排列，避免错位 */
+    align-items: center; /* 垂直居中，解决顶部过近的核心 */
+    transition: all 0.3s ease;
+    overflow: hidden; /* 确保内部元素不溢出圆角 */
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
 }
-
-/* 4. 搜索框聚焦动效 - 增强反馈（表单内任意元素聚焦时触发） */
+.home-search input { color: var(--primary) !important; }
 .home-search form:focus-within {
-    border-color: var(--tertiary); /* 聚焦时边框色切换为网站第三主题色，提示激活状态 */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 阴影加深：模糊12px，透明度10% → 增强立体感 */
-    transform: translateY(-1px);  /* 表单轻微向上偏移1px，模拟“浮起”效果，交互更生动 */
-    max-width: 600px;
+    background: var(--card-bg) !important;
+    box-shadow: 0 0 0 3px rgba(0, 100, 255, 0.1);
+    border-color: var(--tertiary) !important;
 }
 
-/* 5. 搜索输入框 - 修复宽度抢占+高度问题【核心修复】 */
-.home-search input {
-    flex: 1;                      /* 弹性占满剩余空间，给按钮留宽度 */
-    background: transparent !important; /* 强制透明背景，覆盖浏览器默认/其他样式的白色背景 */
-    border: none;                 /* 清除输入框默认边框 */
-    outline: none;                /* 清除聚焦时的默认外边框 */
-    color: var(--primary) !important; /* 强制输入文字颜色为网站主色调 */
-    caret-color: var(--secondary); /* 输入光标颜色设为网站次要色调 */
-    font-size: 18px;              /* 缩小字体，降低高度*/
-    padding: 4px 8px;             /* 内边距适配字体大小，不拥挤 */
-    transition: all 0.3s ease;    /* 宽度等样式变化平滑过渡 */
-    appearance: none;             /* 清除浏览器默认输入框样式 */
-    -webkit-appearance: none;     /* 兼容Webkit内核浏览器 */
-    height: 100%;                 /* 输入框高度铺满表单，垂直对齐 */
-    box-sizing: border-box;       /* 内边距计入高度，避免溢出 */
-}
-
-/* 6. 兼容Webkit浏览器自动填充背景（解决黄色/白色填充背景问题） */
-.home-search input:-webkit-autofill,
-.home-search input:-webkit-autofill:hover,
-.home-search input:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--primary); /* 强制自动填充时文字颜色不变 */
-    -webkit-box-shadow: 0 0 0px 1000px var(--code-bg) inset; /* 用代码块背景色填充输入框，覆盖默认填充色 */
-    transition: background-color 5000s ease-in-out 0s; /* 延迟5000秒触发背景色变化，等效禁用自动填充背景 */
-}
-
-/* 8. 搜索按钮样式（修复图标分离） */
-.home-search button {
-    background: none;             /* 清除按钮默认背景色 */
-    border: none;                 /* 清除按钮默认边框 */
-    color: var(--secondary);      /* 按钮图标颜色继承网站次要色调 */
-    cursor: pointer;              /* 鼠标悬停时显示手型 */
-    display: flex;                /* 弹性布局，保证图标居中 */
-    align-items: center;          /* 图标垂直居中 */
-    padding: 0 8px;               /* 缩减按钮内边距，只保留左右8px，降低宽度 */
-    font-size: 16px;              /* 图标大小适配 */
-    height: 100%;                 /* 按钮高度铺满表单，垂直对齐 */
-    flex-shrink: 0;               /* 按钮不收缩，强制保留宽度，避免被输入框挤走 */
-}
-
-/* 9. 搜索按钮悬停效果 */
-.home-search button:hover {
-    color: var(--tertiary);       /* 悬停时按钮颜色切换为网站第三主题色 */
-}
-
-/* 10. 输入框占位符样式优化 */
 .home-search input::placeholder {
-    color: var(--secondary);      /* 占位符文字颜色继承次要色调 */
-    opacity: 0.6;                 /* 透明度60%，区分占位符和输入内容 */
-    font-size: 14px;              /* 占位符字体匹配输入框，降低高度 */
+    color: var(--secondary);
+}
+.home-search button {
+    color: var(--secondary) !important;
 }
 
-/* 11. 菜单布局优化 */
-#menu {
-    display: flex;                /* 菜单项横向排列 */
-    gap: 15px;                    /* 菜单项之间的间距15px */
-    list-style: none;             /* 清除列表默认圆点样式 */
-    margin: 0;                    /* 清除列表默认外边距 */
-    padding: 0;                   /* 清除列表默认内边距 */
-    white-space: nowrap;          /* 强制菜单项不换行 */
+/* 搜索框聚焦时，边框高亮 */
+.home-search form:focus-within {
+    background: var(--card-bg) !important; /* 聚焦时稍微亮一点 */
+}
+/* ================================================================
+   6. 其他细节微调
+   ================================================================ */
+/* 头像圆形 */
+.profile-card .avatar {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    border: 4px solid var(--theme);
+    margin-bottom: 20px;
 }
 
-/* 12. 隐藏首页菜单栏原有搜索按钮 */
-.home .menu #menu li:nth-child(1) {
-    display: none;                /* 隐藏首页菜单列表第一个li（原搜索按钮） */
+/* 导航栏对齐 */
+.nav {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+/* 链接悬停 */
+.social-links a {
+    position: relative;
+    text-decoration: none !important;
+}
+.social-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+.social-links a:hover::after {
+    width: 100%; /* 鼠标移上去，下划线从左向右长出来 */
+}
+
+.tag-list li {
+    list-style: none;
+    margin: 5px 0;
+}
+/* 分类标签列表悬停 */
+.tag-list li a {
+    padding: 2px 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* 归档年份小按钮悬停 */
+.year-link {
+    padding: 2px 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex !important;
+    border: 1px solid transparent;
+    margin: 0 1px;   /* 加间距，可选 */
+}
+
+
+/* 最新文章列表悬停 */
+.recent-card ul li {
+    list-style: none;
+    margin: 5px 0;
+}
+.recent-card ul li a {
+    display: block;        /* 让整行都可以点击和变色 */
+    padding: 2px 8px;    /* 控制变色区域的大小 */
+    border-radius: 8px;   /* 圆角矩形 */
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* 预留边框位置，防止闪烁 */
+}
+
+
+/* 悬停效果：实现你要求的背景加深逻辑 */
+.tag-list li a:hover,
+.year-link:hover,
+.recent-card ul li a:hover {
+    background: var(--hover-bg) !important; 
+    transform: translateX(4px);
+    color: var(--tertiary) !important;
+    border-color: var(--border) !important;
+}
+
+/* 文章预览卡片整体悬停 */
+.post-entry.card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.post-entry.card:hover {
+    transform: translateY(-5px);           /* 整个卡片上移 */
+    border-color: var(--tertiary);         /* 边框变色 */
+}
+
+/* ================================================================
+   7. 滚动条修复
+   ================================================================ */
+::-webkit-scrollbar-thumb {
+    background: var(--border) !important; /* 强制设为边框灰色，不随蓝色变量变色 */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary) !important;
 }

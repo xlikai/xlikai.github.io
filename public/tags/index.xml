@@ -9,31 +9,10 @@
     <lastBuildDate>Sun, 04 Jan 2026 15:22:23 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Deeplearning</title>
-      <link>http://localhost:1313/tags/deeplearning/</link>
-      <pubDate>Sun, 04 Jan 2026 15:22:23 +0800</pubDate>
-      <guid>http://localhost:1313/tags/deeplearning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Env</title>
-      <link>http://localhost:1313/tags/env/</link>
-      <pubDate>Sun, 04 Jan 2026 15:22:23 +0800</pubDate>
-      <guid>http://localhost:1313/tags/env/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Linux</title>
       <link>http://localhost:1313/tags/linux/</link>
       <pubDate>Sun, 04 Jan 2026 15:22:23 +0800</pubDate>
       <guid>http://localhost:1313/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Sun, 04 Jan 2026 15:22:23 +0800</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
   </channel>

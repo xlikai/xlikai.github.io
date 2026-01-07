@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Linux学习笔记 | xlikai的博客</title>
-<meta name="keywords" content="Deeplearning, Linux, Python, Env">
+<meta name="keywords" content="Linux">
 <meta name="description" content="为什么选择 Linux 跑深度学习？
 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：
 一、 四种主流安装方案
@@ -64,7 +64,7 @@
 在硬盘上划出一块地给Linux，开机时选择进入哪个系统。">
 <meta name="author" content="XY">
 <link rel="canonical" href="http://localhost:1313/posts/linux/y-dl/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.494909638f9af04639b87797d0299b5414a95c759ff7090a2f76f3169463faf2.css" integrity="sha256-SUkJY4&#43;a8EY5uHeX0CmbVBSpXHWf9wkKL3bzFpRj&#43;vI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.67dde46ada548cb1facab1865dd1d98bd97dd9d03b1d72a63f900da7d2d44741.css" integrity="sha256-Z93katpUjLH6yrGGXdHZi9l92dA7HXKmP5ANp9LUR0E=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -135,10 +135,7 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2026-01-04T15:22:23+08:00">
     <meta property="article:modified_time" content="2026-01-04T15:22:23+08:00">
-    <meta property="article:tag" content="Deeplearning">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Env">
     <meta property="og:image" content="http://localhost:1313/posts/linux/y-dl/linux.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://localhost:1313/posts/linux/y-dl/linux.png">
@@ -228,7 +225,7 @@
   "name": "Linux学习笔记",
   "description": "为什么选择 Linux 跑深度学习？ 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：\n一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 首选方案：兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G+), U盘启动盘 性能最强，完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 高性能需求：长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G+内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡（极难配置显卡穿透），性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。\n硬件要求：普通的现代Windows电脑，只需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 深度学习优势：现在WSL2已完美支持NVIDIA CUDA。你可以在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 安装方法：在PowerShell执行 wsl --install，默认安装Ubuntu。 2. 双系统 (Windows + Ubuntu) —— 推荐专业开发者 在硬盘上划出一块地给Linux，开机时选择进入哪个系统。\n",
   "keywords": [
-    "Deeplearning", "Linux", "Python", "Env"
+    "Linux"
   ],
   "articleBody": "为什么选择 Linux 跑深度学习？ 在 Windows 下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2 可以在保留 Windows 日常办公方便性的同时，拥有 Linux 原生的开发体验，以便过度到Linux系统，选择理由如下：\n一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 首选方案：兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G+), U盘启动盘 性能最强，完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 高性能需求：长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G+内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡（极难配置显卡穿透），性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。\n硬件要求：普通的现代Windows电脑，只需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 深度学习优势：现在WSL2已完美支持NVIDIA CUDA。你可以在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 安装方法：在PowerShell执行 wsl --install，默认安装Ubuntu。 2. 双系统 (Windows + Ubuntu) —— 推荐专业开发者 在硬盘上划出一块地给Linux，开机时选择进入哪个系统。\n硬件要求：至少预留一个50GB-200GB的磁盘分区（推荐SSD）。 软件要求：使用 Rufus 或 Ventoy 制作Ubuntu ISO启动U盘。 优点：没有中间商赚差价，显卡驱动最稳定，内存利用率最高。 建议型号：目前深度学习主流用 Ubuntu 20.04 LTS 或 22.04 LTS。 3. 虚拟机 (VMware/VirtualBox) —— 不推荐 虚拟机在Windows上再运行一个操作系统，性能损耗大，显卡驱动配置复杂。\n4. Docker容器 —— 团队推荐 Docker容器在Linux上再运行一个操作系统，适合团队协作，不适合个人使用。\n三、 深度学习/计算机视觉领域的建议 如果你是跑深度学习代码（如 PyTorch, TensorFlow, OpenCV）：\n建议按照以下步骤进行：\n第一选择：WSL2 + Ubuntu 22.04\n理由：你可以一边在Windows看网页教程、用微信交流，一边在Linux终端里跑模型。 配置流程：安装WSL2 -\u003e 安装Ubuntu -\u003e 在Windows安装最新NVIDIA驱动 -\u003e 在Ubuntu里安装 Miniconda -\u003e 安装 PyTorch (CUDA版)。 第二选择：原生双系统 (Ubuntu 22.04)\n理由：如果你需要连续几天几夜挂机跑大模型（如训练一个复杂的Transformer或大规模检测网络），WSL2 可能会有内存泄露或稳定性问题，此时原生系统更靠谱。 环境管理工具 无论用哪种方法，安装完Linux后，不要直接在系统环境装库。\n必须安装：Miniconda 或 Anaconda，建议结合pixi使用。 原因：它能让你为每个项目创建独立的虚拟环境（例如：项目A用PyTorch 1.10，项目B用PyTorch 2.0，互不干扰）。 ",
   "wordCount" : "149",
@@ -433,10 +430,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/deeplearning/">Deeplearning</a></li>
       <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
-      <li><a href="http://localhost:1313/tags/env/">Env</a></li>
     </ul>
   </footer>
 </article>

@@ -5,12 +5,6 @@
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2026-01-04T15:22:23+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/deeplearning/</loc>
-    <lastmod>2026-01-04T15:22:23+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/env/</loc>
-    <lastmod>2026-01-04T15:22:23+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2026-01-04T15:22:23+08:00</lastmod>
   </url><url>
@@ -18,9 +12,6 @@
     <lastmod>2026-01-04T15:22:23+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-04T15:22:23+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2026-01-04T15:22:23+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
