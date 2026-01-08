@@ -45,8 +45,8 @@ theme = 'PaperMod'
     weight = 20
 
 [[menu.main]]
-    name = "资源链接"
-    url = "links"
+    name = "项目记录"
+    url = "link"
     weight = 30
 
 [[menu.main]]
