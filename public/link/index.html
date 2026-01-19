@@ -10,7 +10,7 @@
 <meta name="description" content="项目记录 - xlikai的博客">
 <meta name="author" content="xlikai">
 <link rel="canonical" href="http://localhost:1313/link/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a59ea1b600145c61861ce5f7652ff7845038b3c20a48a07407cba2716fa0af64.css" integrity="sha256-pZ6htgAUXGGGHOX3ZS/3hFA4s8IKSKB0B8uicW&#43;gr2Q=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.34cdc7e201bbf98c6bd5afc2f35b653911b9ab41d9d7053854ce46aae025b1f5.css" integrity="sha256-NM3H4gG7&#43;Yxr1a/C81tlORG5q0HZ1wU4VM5GquAlsfU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.jpg">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -18,6 +18,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/link/index.xml" title="rss">
 <link rel="alternate" hreflang="en" href="http://localhost:1313/link/">
 <noscript>
     <style>
@@ -75,10 +76,10 @@
   <meta property="og:title" content="项目记录">
   <meta property="og:description" content="记录VSAT的成长历程">
   <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目记录">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="记录VSAT的成长历程">
 
 
 <script type="application/ld+json">
@@ -95,41 +96,8 @@
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "项目记录",
-  "name": "项目记录",
-  "description": "",
-  "keywords": [
-    
-  ],
-  "articleBody": "",
-  "wordCount" : "0",
-  "inLanguage": "en",
-  "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "0001-01-01T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "xlikai"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://localhost:1313/link/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "xlikai的博客",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.jpg"
-    }
-  }
-}
-</script>
 </head>
-<body id="top">
+<body class="list is-list-page" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -190,24 +158,12 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title entry-hint-parent">
-      项目记录
-    </h1>
-    <div class="post-meta"><span>xlikai</span>
-
-</div>
-  </header> 
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    项目记录
+  </h1>
+</header>
     </main>
     
 <footer class="footer">
@@ -284,53 +240,6 @@
         }
     })
 
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
 </script>
 </body>
 
