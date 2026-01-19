@@ -1,0 +1,84 @@
+{{- /* Only show on non-single pages or always? User said "every page" */ -}}
+<button id="top-link" aria-label="go to top" title="Go to Top (Alt + G)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</button>
+
+<style>
+    #top-link {
+        display: none;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 99999;
+        cursor: pointer;
+        animation: fadeIn 0.5s;
+        background: var(--tertiary);
+        color: var(--theme);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    #top-link:hover {
+        transform: scale(1.1);
+        background: var(--primary);
+    }
+
+    #top-link svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    window.addEventListener('load', function () {
+        // 1. 尝试寻找 Dashboard 模式的滚动容器 (.main-content)
+        const mainContent = document.querySelector('.main-content');
+        const myButton = document.getElementById("top-link");
+
+        if (!myButton) return;
+
+        // 定义通用的大于 400px 显示逻辑
+        function checkScroll(scrollTop) {
+            if (scrollTop > 400) {
+                myButton.style.display = "flex";
+            } else {
+                myButton.style.display = "none";
+            }
+        }
+
+        if (mainContent) {
+            // --- Dashboard 模式 (列表页) ---
+            // 监听容器内部滚动
+            mainContent.onscroll = function () {
+                checkScroll(mainContent.scrollTop);
+            };
+
+            myButton.onclick = function () {
+                mainContent.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+        });
+</script>

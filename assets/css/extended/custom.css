@@ -18,6 +18,8 @@
     --tertiary: #0066ccb0;
     --img-bg: #f6f4f1;
     /* 改为纯白 */
+    --header-height: 60px;
+    /* 定义头部高度变量 */
 }
 
 /* 选择器能在你的网页触发夜晚颜色 */
@@ -38,71 +40,180 @@ html[data-theme='dark'] {
     /* 夜间模式改为与卡片背景一致，或者用透明 transparent */
 }
 
+body.list,
+html:has(body.list) {
+    /* 核心修改：仅在列表页（Dashboard）禁止整个页面滚动 */
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 body,
-html,
+html {
+    background-color: var(--theme) !important;
+    /* 修复两侧白边问题 */
+}
+
 .main {
     background-color: var(--theme) !important;
-    /* 全局背景色统一为主题色 */
-    transition: background 0.3s ease;
-    /* 背景色切换动画 */
+    padding-top: calc(var(--header-height) + 20px);
+    /* 强行增加 20px 缓冲 */
+    box-sizing: border-box;
 }
+
+/* Dashboard 模式下的 Main */
+.list .main {
+    height: 100vh;
+    overflow: hidden;
+    /* 防止 main 本身滚动 */
+    max-width: 100% !important;
+    /* 让 Dashboard 占满全屏，贴合侧边 */
+    padding: 20px 0;
+    /* 减少左右内边距 */
+    padding-top: calc(var(--header-height) + 15px) !important;
+}
+
+/* 强制头部固定 */
+.nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* 提高 z-index 确保要在最上层 */
+    background: var(--theme);
+    /* 确保头部不透明 */
+    height: var(--header-height);
+    display: flex;
+    flex-wrap: nowrap;
+    /* 禁止导航栏换行 */
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    /* 可选：增加一条底线分隔 */
+    padding: 0 20px;
+    /* 增加内边距 */
+    white-space: nowrap;
+    /* 防止内容内部换行 */
+}
+
 
 /* ================================================================
    2. 首页三栏布局 (仪表盘感：分离与间距)
    ================================================================ */
 /* 首页主容器放宽 */
 .list .main {
-    max-width: 1300px !important;
+    max-width: 1600px !important;
+    /* 稍微再宽一点适应固定布局 */
     margin: 0 auto !important;
     padding: 20px 10px;
+    padding-top: calc(var(--header-height) + 15px) !important;
 }
 
-/* 三栏布局：增加 gap 实现分离感 */
+/* 三栏布局：容器填满高度 */
 .column-container {
     display: flex !important;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    gap: 35px;
-    /* 增加盒子之间的间距 */
+    gap: 20px;
     width: 100%;
+    height: 100%;
+    /* 填满 .main 的剩余部分 */
+    overflow: hidden;
+    /* 自身不滚动 */
+    padding-top: 10px;
+    /* 增加顶部间距，防止侧边栏被遮挡 */
 }
 
-/* 左右侧边栏：固定宽度 + 粘性定位 */
+/* 左右侧边栏：固定不动，如果内容过多可自身滚动 */
 .sidebar-left,
 .sidebar-right {
     width: 280px !important;
     flex-shrink: 0;
-    position: sticky;
-    top: 20px;
-    /* 距离顶部 20px 处停住 */
-    height: fit-content;
+    height: 100%;
+    /* 填满高度 */
+    overflow-y: auto;
+    /* 允许侧边栏内部滚动 */
+    padding-bottom: 40px;
+    /* 底部留白 */
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    z-index: 10;
+    gap: 25px;
+
+    /* 隐藏侧边栏滚动条但保留功能 (Chrome/Safari) */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
 }
 
-/* 中间主内容区：增加盒子感 */
+.sidebar-left::-webkit-scrollbar,
+.sidebar-right::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 中间主内容区：核心修改 - 只有该区域滚动 */
 .main-content {
     flex: 1;
     min-width: 0;
+    height: 100%;
+    /* 填满高度 */
+    overflow-y: scroll;
+    /* 强制开启滚动 */
+    padding-right: 15px;
+    /* 防止滚动条盖住内容 */
+    padding-bottom: 20px;
+    /* 底部留白，方便看到最后 */
+
+    scrollbar-width: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* 文章卡片之间的上下间距 */
+    gap: 10px;
+    /* Increased gap between cards */
 }
 
 /* 响应式 */
 @media screen and (max-width: 1100px) {
+
+    body.list,
+    html:has(body.list),
+    body,
+    html {
+        overflow: auto !important;
+        /* 移动端恢复默认滚动行为，体验更好 */
+        height: auto !important;
+    }
+
+    /* 必须同时解锁 .list .main 这个高权重选择器 */
+    .list .main {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .main {
+        height: auto;
+        overflow: visible;
+    }
+
+    .nav {
+        position: sticky !important;
+        /* 移动端用 sticky 比较自然 */
+    }
+
     .column-container {
         flex-direction: column !important;
+        height: auto;
+        overflow: visible;
     }
 
     .sidebar-left,
-    .sidebar-right {
+    .sidebar-right,
+    .main-content {
         width: 100% !important;
-        position: static;
+        height: auto !important;
+        overflow: visible !important;
     }
 }
 
@@ -115,8 +226,9 @@ html,
     color: var(--primary) !important;
     border: 1px solid var(--border) !important;
     border-radius: 16px !important;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    /* box-shadow: none !important; */
     transition:
         background-color 0.3s ease,
         color 0.3s ease,
@@ -129,9 +241,7 @@ html,
 html[data-theme='dark'] .card,
 html[data-theme='dark'] .post-entry.card {
     background: var(--entry) !important;
-    /* 深色模式使用 entry 变量 */
     box-shadow: none;
-    /* 如果需要移除阴影，在这里保留 */
 }
 
 /* 确保所有文字颜色跟随变量 */
@@ -154,14 +264,40 @@ html[data-theme='dark'] .post-entry.card {
 .post-entry.card {
     padding: 0 !important;
     overflow: hidden;
+    flex-shrink: 0 !important;
+    /* 关键：禁止卡片在垂直方向被挤压 */
 }
 
 .post-entry .entry-header,
 .post-entry .entry-content,
 .post-entry .entry-footer {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 20px;
+    /* 缩小内边距 */
+    padding-right: 20px;
 }
+
+.post-entry .entry-header {
+    margin-top: 8px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    /* Prevent header compression */
+}
+
+/* 恢复被误删的文字内容样式 */
+.post-entry .entry-content {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-overflow: ellipsis;
+    margin-bottom: 12px;
+    flex-grow: 1 !important;
+    /* 填充剩余空间 */
+    flex-shrink: 1 !important;
+}
+
 
 /* ================================================================
    4. 图片样式模块
@@ -197,7 +333,7 @@ html[data-theme='dark'] .post-entry.card {
 /* 详情页顶部图高度 */
 .post-single .entry-cover {
     width: 100%;
-    height: 350px !important;
+    height: 300px !important;
     /* 设置一个固定高度防止无限放大 */
     margin-bottom: 25px;
     border-radius: 12px;
@@ -252,14 +388,18 @@ html[data-theme='dark'] .post-single .post-content img {
     5. 搜索框增强 (让它变明显) 
     =============================================================*/
 .home-search {
-    margin: 15px auto;
+    margin: 10px auto;
     padding: 0 10px;
     max-width: 600px;
-    /* 限制一下最大宽度，防止太长 */
+    flex: 1;
+    /* 允许搜索框在导航栏中自动伸缩 */
+    min-width: 100px;
+    /* 允许压缩到最小 */
 }
 
 .home-search form {
     background: var(--search-bg) !important;
+    width: 100%;
     /* 使用专门的搜索框背景 */
     border: 1px solid var(--border) !important;
     height: 40px;
@@ -281,6 +421,10 @@ html[data-theme='dark'] .post-single .post-content img {
 
 .home-search input {
     color: var(--primary) !important;
+    flex: 1;
+    /* 让输入框占据剩余空间 */
+    width: 100%;
+    /* 确保填满 */
 }
 
 .home-search form:focus-within {
@@ -403,7 +547,7 @@ html[data-theme='dark'] .post-single .post-content img {
 }
 
 .post-entry.card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     /* 整个卡片上移 */
     border-color: var(--tertiary);
     /* 边框变色 */
@@ -433,23 +577,48 @@ body.is-home .main {
 }
 
 /* 确保首页的三栏 flex 布局不受影响 */
+/* 移除强制 Row 的规则，让 Media Query 生效 */
 body.is-home .column-container {
     display: flex !important;
-    flex-direction: row !important;
-    gap: 35px !important;
 }
 
-/* 利用 is-list-page 身份证，精准开启三列网格 */
+/* 利用 is-list-page 身份证，精准开启瀑布流布局 (Masonry) */
 body.is-list-page .main {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
+    display: block !important;
+    /* 禁用 Grid/Flex，使用 Block 配合 Columns */
+    /* column-count: 2 !important;  <-- MOVED TO WRAPPER via JS/HTML change */
+    /* column-gap: 20px !important; <-- MOVED TO WRAPPER */
     max-width: 1300px !important;
-    margin: 20px auto !important;
+    margin: 0 auto !important;
 
     padding: 10px !important;
-    align-items: start !important;
-    grid-auto-rows: auto, max-content !important;
+    padding-top: calc(var(--header-height)) !important;
+
+    height: 100vh !important;
+    /* 必须有高度才能滚动 */
+    overflow-y: scroll !important;
+    scrollbar-width: none;
+    /* 隐藏滚动条但允许滚动 */
+}
+
+/* New Wrapper for Masonry Columns */
+body.is-list-page .posts-wrapper {
+    column-count: 2 !important;
+    column-gap: 20px !important;
+    width: 100%;
+}
+
+/* 让筛选栏横跨瀑布流布局 */
+body.is-list-page .filter-controls {
+    column-span: all !important;
+    -webkit-column-span: all !important;
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+
+    /* Visual Separation from top */
+    margin-top: 10px !important;
+    padding-top: 10px !important;
 }
 
 /* 列表页标题 (Posts) 横跨三列 */
@@ -458,14 +627,22 @@ body.is-list-page .main>h1 {
     display: none !important;
 }
 
-/* 列表页卡片高度统一 */
+/* 列表页卡片适配瀑布流 */
 body.is-list-page .post-entry {
     height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    margin: 0 !important;
-    min-height: 300px !important;
-
+    display: inline-block !important;
+    /* 关键：防止跨列断裂 */
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    /* 卡片垂直间距 */
+    break-inside: avoid !important;
+    /* 禁止卡片内部断裂 */
+    page-break-inside: avoid !important;
+    -webkit-column-break-inside: avoid !important;
+    background: var(--card-bg);
+    /* 确保背景色，防止透明 */
+    min-height: auto !important;
+    /* 取消强制高度，让内容决定高度 */
     background: transparent !important;
     border: 1px solid var(--border) !important;
     /* 给个细边框，圆角边缘更清晰 */
@@ -490,9 +667,24 @@ body.entry-cover,
     /* 如果想区分图片和文字，加条底线 */
 }
 
+body.is-list-page .post-entry .entry-cover img,
 body.is-list-page .post-entry.card .entry-cover img {
     border-radius: 0 !important;
+    max-height: none !important;
+    /* 允许自适应 */
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: contain !important;
+    /* 完整显示，不裁剪 */
     /* 依靠父级剪裁 */
+}
+
+/* 自适应图片，移除强制高度 */
+body.is-list-page .post-entry .entry-cover {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 @media screen and (max-width: 1100px) {

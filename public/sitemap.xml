@@ -3,31 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/linux/</loc>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/shell%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/shell/</loc>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-01-19T10:00:00+08:00</lastmod>
+    <lastmod>2026-01-19T10:48:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/linux/y-dl-copy-2/</loc>
+    <lastmod>2026-01-08T15:22:23+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/linux/y-dl-copy/</loc>
+    <lastmod>2026-01-08T15:22:23+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2026-01-08T15:22:23+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/linux/y-dl/</loc>
     <lastmod>2026-01-07T15:22:23+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2026-01-07T15:22:23+08:00</lastmod>
+    <loc>http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2-copy/</loc>
+    <lastmod>2025-01-19T10:48:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>

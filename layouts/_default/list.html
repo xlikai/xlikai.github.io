@@ -42,56 +42,139 @@
 
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
 {{- end }}
 
-{{- $paginator := .Paginate $pages }}
+{{- $paginator := .Paginate $pages 100 }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{- $term := .Data.Term }}
-{{- range $index, $page := $paginator.Pages }}
+<div class="posts-wrapper">
+  {{- $term := .Data.Term }}
+  {{- if and (not .IsHome) (eq .Section "posts") }}
+  <div class="filter-controls"
+    style="grid-column: 1 / -1; width: 100%; margin-bottom: 40px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <span style="font-size: 0.9rem; font-weight: bold; color: var(--primary);">Sort:</span>
+    <button onclick="sortPosts('date', 'desc')" class="filter-btn active">Newest</button>
+    <button onclick="sortPosts('date', 'asc')" class="filter-btn">Oldest</button>
 
-{{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
-{{- $class = "post-entry tag-entry" }}
-{{- end }}
-
-<article class="{{ $class }}">
-  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-      {{- .Title }}
-      {{- if .Draft }}
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-      {{- end }}
-    </h2>
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <span style="font-size: 0.9rem; font-weight: bold; color: var(--primary); margin-left: 10px;">Filter:</span>
+    <select id="timeRange" onchange="filterPosts(this.value)"
+      style="padding: 2px 5px; font-size: 0.9rem; border-radius: 4px; border: 1px solid var(--border); background: var(--card-bg); color: var(--primary);">
+      <option value="all">All</option>
+      <option value="2026">2026</option>
+      <option value="2025">2025</option>
+    </select>
   </div>
+
+  <script>
+    function sortPosts(key, order) {
+      console.log('Sorting by:', key, order);
+      const container = document.querySelector('.posts-wrapper');
+      // Important: Target only the articles in wrapper
+      const articles = Array.from(container.querySelectorAll('article.post-entry'));
+
+      articles.sort((a, b) => {
+        const valA = parseInt(a.dataset.timestamp || 0);
+        const valB = parseInt(b.dataset.timestamp || 0);
+        return order === 'desc' ? valB - valA : valA - valB;
+      });
+
+      // Re-append to change order
+      articles.forEach(article => container.appendChild(article));
+
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function filterPosts(range) {
+      console.log('Filtering range:', range);
+      const articles = document.querySelectorAll('.posts-wrapper article.post-entry');
+      articles.forEach(article => {
+        // Reset usage: remove inline property to fall back to CSS (which has inline-block !important)
+        article.style.removeProperty('display');
+
+        if (range !== 'all') {
+          const ts = parseInt(article.dataset.timestamp);
+          if (ts) {
+            const date = new Date(ts * 1000);
+            if (date.getFullYear().toString() !== range) {
+              // Override CSS !important
+              article.style.setProperty('display', 'none', 'important');
+            }
+          }
+        }
+      });
+    }
+  </script>
+
+  <style>
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 2px 10px;
+      /* Smaller button */
+      font-size: 0.85rem;
+      /* Smaller text */
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--tertiary);
+      color: white;
+      border-color: var(--tertiary);
+      transition: all 0.2s ease;
+    }
+  </style>
   {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
+
+  {{- range $index, $page := $paginator.Pages }}
+
+  {{- $class := "post-entry" }}
+
+  {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
+  {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+  {{- $class = "first-entry" }}
+  {{- else if $term }}
+  {{- $class = "post-entry tag-entry" }}
   {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- end }}
+
+  <article class="{{ $class }}" data-timestamp="{{ .Date.Unix }}">
+    {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
+    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">
+        {{- .Title }}
+        {{- if .Draft }}
+        <span class="entry-hint" title="Draft">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+            <path
+              d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+          </svg>
+        </span>
+        {{- end }}
+      </h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+    <div class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{- end }}
+</div>
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">

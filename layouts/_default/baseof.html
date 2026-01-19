@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 {{- $theme := site.Params.defaultTheme | default "auto" }}
 {{- if eq $theme "dark" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="dark">
+<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default " auto" }}" data-theme="dark">
 {{- else if eq $theme "light" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="light">
+<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default " auto" }}" data-theme="light">
 {{- else }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="auto">
+<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default " auto" }}" data-theme="auto">
 {{- end }}
 
 <head>
@@ -17,17 +17,21 @@
 </head>
 
 {{- if .IsHome }}
+
 <body class="list is-home" id="top">
-{{- else if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
-<body class="list is-list-page" id="top">
-{{- else }}
-<body id="top">
-{{- end }}
-    {{ partialCached "header.html" . .Page -}}
-    <main class="main">
-        {{- block "main" . }}{{ end }}
-    </main>
-    {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
-</body>
+    {{- else if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
+
+    <body class="list is-list-page" id="top">
+        {{- else }}
+
+        <body id="top">
+            {{- end }}
+            {{ partialCached "header.html" . .Page -}}
+            <main class="main">
+                {{- block "main" . }}{{ end }}
+            </main>
+            {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+            {{- partial "back_to_top.html" . -}}
+        </body>
 
 </html>

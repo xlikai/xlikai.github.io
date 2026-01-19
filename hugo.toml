@@ -3,6 +3,10 @@ languageCode = 'zh-cn'
 title = 'xlikai的博客'
 theme = 'PaperMod'
 
+
+[pagination]
+    pagerSize = 100
+
 [params]
     env               = 'production'
     defaultTheme      = 'auto'

@@ -1,5 +1,5 @@
 ---
-title: "Shell脚本作业2-2：Marco Polo 目录导航脚本 "
+title: "Shell练习2-2"
 date: 2026-01-19T10:48:00+08:00
 tags: ["Shell", "Linux", ]
 categories: ["Linux"]
