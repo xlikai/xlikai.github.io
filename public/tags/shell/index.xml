@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Shell on xlikai的博客</title>
-    <link>http://localhost:1313/tags/shell/</link>
+    <link>https://xlikai.github.io/tags/shell/</link>
     <description>Recent content in Shell on xlikai的博客</description>
     <generator>Hugo -- 0.154.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 19 Jan 2026 10:48:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xlikai.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell练习2-2</title>
-      <link>http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</link>
+      <link>https://xlikai.github.io/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</link>
       <pubDate>Mon, 19 Jan 2026 10:48:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</guid>
+      <guid>https://xlikai.github.io/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</guid>
       <description>&lt;p&gt;在日常的 Shell 操作中，我们经常需要在深层级的目录之间来回切换。The Missing Semester of Your CS Education 2-2 作业要求编写一个脚本，实现 &lt;code&gt;marco&lt;/code&gt; 保存当前目录和 &lt;code&gt;polo&lt;/code&gt; 跳转回保存的目录。&lt;/p&gt;
 &lt;h2 id=&#34;脚本源码&#34;&gt;脚本源码&lt;/h2&gt;
 &lt;p&gt;可以直接下载或复制以下代码到 &lt;code&gt;/home/vsat/marco.sh&lt;/code&gt;：&lt;/p&gt;

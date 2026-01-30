@@ -2,44 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://xlikai.github.io/categories/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/linux/</loc>
+    <loc>https://xlikai.github.io/categories/linux/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://xlikai.github.io/tags/linux/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://xlikai.github.io/posts/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/shell/</loc>
+    <loc>https://xlikai.github.io/tags/shell/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</loc>
+    <loc>https://xlikai.github.io/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://xlikai.github.io/tags/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://xlikai.github.io/</loc>
     <lastmod>2026-01-19T10:48:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/linux/y-dl/</loc>
+    <loc>https://xlikai.github.io/posts/linux/y-dl/</loc>
     <lastmod>2026-01-07T15:22:23+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://xlikai.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2026-01-07T15:22:23+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://xlikai.github.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://xlikai.github.io/archives/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://xlikai.github.io/search/</loc>
   </url><url>
-    <loc>http://localhost:1313/monthly/</loc>
+    <loc>https://xlikai.github.io/monthly/</loc>
   </url><url>
-    <loc>http://localhost:1313/link/</loc>
+    <loc>https://xlikai.github.io/link/</loc>
   </url>
 </urlset>

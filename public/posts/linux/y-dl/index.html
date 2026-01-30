@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir=" auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -62,16 +62,16 @@
 2. 双系统 (Windows &#43; Ubuntu) —— 推荐专业开发者
 硬盘上划一块给Linux，开机时选择进入哪个系统。">
 <meta name="author" content="XY">
-<link rel="canonical" href="http://localhost:1313/posts/linux/y-dl/">
+<link rel="canonical" href="https://xlikai.github.io/posts/linux/y-dl/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0842d7db16db2ff789b7cf7c7e407315c086ce49a84b1c2cbff454e148925959.css" integrity="sha256-CELX2xbbL/eJt898fkBzFcCGzkmoSxwsv/RU4UiSWVk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.jpg">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://xlikai.github.io/favicon.jpg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://xlikai.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://xlikai.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://xlikai.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://xlikai.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/linux/y-dl/">
+<link rel="alternate" hreflang="en" href="https://xlikai.github.io/posts/linux/y-dl/">
 <noscript>
     <style>
         #theme-toggle,
@@ -123,7 +123,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/posts/linux/y-dl/">
+</script><meta property="og:url" content="https://xlikai.github.io/posts/linux/y-dl/">
   <meta property="og:site_name" content="xlikai的博客">
   <meta property="og:title" content="Linux学习笔记">
   <meta property="og:description" content="为什么选择 Linux 跑深度学习？ 在Windows下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2可以在保留Windows日常办公方便性的同时，拥有Linux原生的开发体验，以便过度到Linux系统，选择理由如下：
@@ -135,9 +135,9 @@
     <meta property="article:published_time" content="2026-01-07T15:22:23+08:00">
     <meta property="article:modified_time" content="2026-01-07T15:22:23+08:00">
     <meta property="article:tag" content="Linux">
-    <meta property="og:image" content="http://localhost:1313/posts/linux/y-dl/linux.png">
+    <meta property="og:image" content="https://xlikai.github.io/posts/linux/y-dl/linux.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/posts/linux/y-dl/linux.png">
+<meta name="twitter:image" content="https://xlikai.github.io/posts/linux/y-dl/linux.png">
 <meta name="twitter:title" content="Linux学习笔记">
 <meta name="twitter:description" content="为什么选择 Linux 跑深度学习？
 在Windows下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2可以在保留Windows日常办公方便性的同时，拥有Linux原生的开发体验，以便过度到Linux系统，选择理由如下：
@@ -204,13 +204,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/posts/"
+      "item": "https://xlikai.github.io/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Linux学习笔记",
-      "item": "http://localhost:1313/posts/linux/y-dl/"
+      "item": "https://xlikai.github.io/posts/linux/y-dl/"
     }
   ]
 }
@@ -228,7 +228,7 @@
   "articleBody": "为什么选择 Linux 跑深度学习？ 在Windows下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2可以在保留Windows日常办公方便性的同时，拥有Linux原生的开发体验，以便过度到Linux系统，选择理由如下：\n一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G+), U盘启动盘 完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 适合长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G+内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡，性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。\n硬件要求：普通的现代Windows电脑，需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 优势：WSL2已完美支持NVIDIA CUDA。可在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 2. 双系统 (Windows + Ubuntu) —— 推荐专业开发者 硬盘上划一块给Linux，开机时选择进入哪个系统。\n硬件要求：至少预留一个50GB-200GB的磁盘分区（推荐SSD硬盘）。 软件要求：使用 Rufus 或 Ventoy 制作Ubuntu ISO启动U盘。 优点：没有中间商赚差价，显卡驱动最稳定，内存利用率最高。 建议型号：主流用 Ubuntu 20.04 LTS 或 22.04 LTS。 3. 虚拟机 (VMware/VirtualBox) —— 不推荐 虚拟机在Windows上再运行一个操作系统，性能损耗大，显卡驱动配置复杂。\n4. Docker容器 —— 团队推荐 Docker容器在Linux上再运行一个操作系统，适合团队协作，不适合个人使用。\n三、 深度学习/计算机视觉领域的建议 如果你是跑深度学习代码（如 PyTorch, TensorFlow, OpenCV）：\n第一选择：WSL2 + Ubuntu 22.04\n理由：可以在Windows看网页教程、用微信交流，另一边在Linux终端里跑模型。 配置流程：安装WSL2 -\u003e 安装Ubuntu -\u003e 在Windows安装最新NVIDIA驱动 -\u003e 在Ubuntu里安装 Miniconda -\u003e 安装 PyTorch 第二选择：原生双系统 (Ubuntu 22.04)\n理由：需要连续几天几夜挂机跑大模型，WSL2 会有内存泄露或稳定性问题，此时原生系统更靠谱。 环境管理工具 无论用哪种方法，安装完Linux后，不要直接在系统环境装库。\n建议安装：Miniconda，结合pixi使用。 原因：让你为每个项目创建独立的虚拟环境。 ",
   "wordCount" : "133",
   "inLanguage": "en",
-  "image":"http://localhost:1313/posts/linux/y-dl/linux.png","datePublished": "2026-01-07T15:22:23+08:00",
+  "image":"https://xlikai.github.io/posts/linux/y-dl/linux.png","datePublished": "2026-01-07T15:22:23+08:00",
   "dateModified": "2026-01-07T15:22:23+08:00",
   "author":{
     "@type": "Person",
@@ -236,14 +236,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/linux/y-dl/"
+    "@id": "https://xlikai.github.io/posts/linux/y-dl/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "xlikai的博客",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.jpg"
+      "url": "https://xlikai.github.io/favicon.jpg"
     }
   }
 }
@@ -254,7 +254,7 @@
             <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Xlikai Home (Alt + H)">Xlikai Home</a>
+            <a href="https://xlikai.github.io/" accesskey="h" title="Xlikai Home (Alt + H)">Xlikai Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -280,7 +280,7 @@
         </div>
 
         <div class="home-search">
-            <form action="http://localhost:1313/search" method="get">
+            <form action="https://xlikai.github.io/search" method="get">
                 <input type="text" name="q" placeholder="搜索笔记..." required>
                 <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -289,22 +289,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/posts" title="学习笔记">
+                <a href="https://xlikai.github.io/posts" title="学习笔记">
                     <span>学习笔记</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/link" title="项目记录">
+                <a href="https://xlikai.github.io/link" title="项目记录">
                     <span>项目记录</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/monthly" title="每月记录">
+                <a href="https://xlikai.github.io/monthly" title="每月记录">
                     <span>每月记录</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about" title=" 关于 ">
+                <a href="https://xlikai.github.io/about" title=" 关于 ">
                     <span> 关于 </span>
                 </a>
             </li>
@@ -325,8 +325,8 @@
   </header> 
 <figure class="entry-cover">
             <img loading="eager"
-                srcset='http://localhost:1313/posts/linux/y-dl/linux_hu_56db5eefc55445ff.png 360w,http://localhost:1313/posts/linux/y-dl/linux_hu_6dbfbb844fa48092.png 480w,http://localhost:1313/posts/linux/y-dl/linux_hu_69f61edd44ce3678.png 720w,http://localhost:1313/posts/linux/y-dl/linux.png 1057w'
-                src="http://localhost:1313/posts/linux/y-dl/linux.png"
+                srcset='https://xlikai.github.io/posts/linux/y-dl/linux_hu_56db5eefc55445ff.png 360w,https://xlikai.github.io/posts/linux/y-dl/linux_hu_6dbfbb844fa48092.png 480w,https://xlikai.github.io/posts/linux/y-dl/linux_hu_69f61edd44ce3678.png 720w,https://xlikai.github.io/posts/linux/y-dl/linux.png 1057w'
+                src="https://xlikai.github.io/posts/linux/y-dl/linux.png"
                 sizes="(min-width: 768px) 720px, 100vw"
                 width="1057" height="1280"
                 alt="Linux选择">
@@ -427,14 +427,14 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="https://xlikai.github.io/tags/linux/">Linux</a></li>
     </ul>
   </footer>
 </article>
             </main>
             
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">xlikai的博客</a></span> · 
+        <span>&copy; 2026 <a href="https://xlikai.github.io/">xlikai的博客</a></span> · 
 
     <span>
         Powered by
@@ -446,7 +446,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a><script src="http://localhost:1313/%20js/adaptive-bg.js"></script>
+</a><script src="https://xlikai.github.io/%20js/adaptive-bg.js"></script>
 
 <script>
     let menu = document.getElementById('menu');

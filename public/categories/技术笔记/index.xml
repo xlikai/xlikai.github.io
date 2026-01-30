@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>技术笔记 on xlikai的博客</title>
-    <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</link>
+    <link>https://xlikai.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 技术笔记 on xlikai的博客</description>
     <generator>Hugo -- 0.154.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 07 Jan 2026 15:22:23 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xlikai.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux学习笔记</title>
-      <link>http://localhost:1313/posts/linux/y-dl/</link>
+      <link>https://xlikai.github.io/posts/linux/y-dl/</link>
       <pubDate>Wed, 07 Jan 2026 15:22:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/linux/y-dl/</guid>
+      <guid>https://xlikai.github.io/posts/linux/y-dl/</guid>
       <description>&lt;h2 id=&#34;为什么选择-linux-跑深度学习&#34;&gt;为什么选择 Linux 跑深度学习？&lt;/h2&gt;
 &lt;p&gt;在Windows下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2可以在保留Windows日常办公方便性的同时，拥有Linux原生的开发体验，以便过度到Linux系统，选择理由如下：&lt;/p&gt;
 &lt;h3 id=&#34;一-四种主流安装方案&#34;&gt;一、 四种主流安装方案&lt;/h3&gt;
