@@ -1,332 +1,377 @@
 <!DOCTYPE html>
 <html lang="en" dir=" auto" data-theme="auto">
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Shell | xlikai的博客</title>
-<meta name="keywords" content="">
-<meta name="description" content="记录VSAT的成长历程">
-<meta name="author" content="xlikai">
-<link rel="canonical" href="https://xlikai.github.io/tags/shell/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0842d7db16db2ff789b7cf7c7e407315c086ce49a84b1c2cbff454e148925959.css" integrity="sha256-CELX2xbbL/eJt898fkBzFcCGzkmoSxwsv/RU4UiSWVk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://xlikai.github.io/favicon.jpg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://xlikai.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://xlikai.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://xlikai.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://xlikai.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://xlikai.github.io/tags/shell/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="https://xlikai.github.io/tags/shell/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <title>Shell | xlikai的博客</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="记录VSAT的成长历程">
+    <meta name="author" content="xlikai">
+    <link rel="canonical" href="https://xlikai.github.io/tags/shell/">
+    <link crossorigin="anonymous"
+        href="/assets/css/stylesheet.0842d7db16db2ff789b7cf7c7e407315c086ce49a84b1c2cbff454e148925959.css"
+        integrity="sha256-CELX2xbbL/eJt898fkBzFcCGzkmoSxwsv/RU4UiSWVk=" rel="preload stylesheet" as="style">
+    <link rel="icon" href="https://xlikai.github.io/favicon.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xlikai.github.io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xlikai.github.io/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="https://xlikai.github.io/apple-touch-icon.png">
+    <link rel="mask-icon" href="https://xlikai.github.io/safari-pinned-tab.svg">
+    <meta name="theme-color" content="#2e2e33">
+    <meta name="msapplication-TileColor" content="#2e2e33">
+    <link rel="alternate" type="application/rss+xml" href="https://xlikai.github.io/tags/shell/index.xml" title="rss">
+    <link rel="alternate" hreflang="en" href="https://xlikai.github.io/tags/shell/">
+    <noscript>
+        <style>
+            #theme-toggle,
+            .top-link {
+                display: none;
+            }
+        </style>
+        <style>
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --theme: rgb(29, 30, 32);
+                    --entry: rgb(46, 46, 51);
+                    --primary: rgb(218, 218, 219);
+                    --secondary: rgb(155, 156, 157);
+                    --tertiary: rgb(65, 66, 68);
+                    --content: rgb(196, 196, 197);
+                    --code-block-bg: rgb(46, 46, 51);
+                    --code-bg: rgb(55, 56, 62);
+                    --border: rgb(51, 51, 51);
+                    color-scheme: dark;
+                }
+
+                .list {
+                    background: var(--theme);
+                }
+
+                .toc {
+                    background: var(--entry);
+                }
+            }
+
+            @media (prefers-color-scheme: light) {
+                .list::-webkit-scrollbar-thumb {
+                    border-color: var(--code-bg);
+                }
+            }
+        </style>
+    </noscript>
+    <script>
+        if (localStorage.getItem("pref-theme") === "dark") {
+            document.querySelector("html").dataset.theme = 'dark';
+        } else if (localStorage.getItem("pref-theme") === "light") {
+            document.querySelector("html").dataset.theme = 'light';
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.querySelector("html").dataset.theme = 'dark';
+        } else {
+            document.querySelector("html").dataset.theme = 'light';
         }
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><meta property="og:url" content="https://xlikai.github.io/tags/shell/">
-  <meta property="og:site_name" content="xlikai的博客">
-  <meta property="og:title" content="Shell">
-  <meta property="og:description" content="记录VSAT的成长历程">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell">
-<meta name="twitter:description" content="记录VSAT的成长历程">
+    </script>
+    <meta property="og:url" content="https://xlikai.github.io/tags/shell/">
+    <meta property="og:site_name" content="xlikai的博客">
+    <meta property="og:title" content="Shell">
+    <meta property="og:description" content="记录VSAT的成长历程">
+    <meta property="og:locale" content="zh-cn">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Shell">
+    <meta name="twitter:description" content="记录VSAT的成长历程">
 
 </head>
 
-    <body class="list is-list-page" id="top">
-            <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://xlikai.github.io/" accesskey="h" title="Xlikai Home (Alt + H)">Xlikai Home</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
+<body class="list is-list-page" id="top">
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="https://xlikai.github.io/" accesskey="h" title="Xlikai Home (Alt + H)">Xlikai Home</a>
+                <div class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <div class="home-search">
-            <form action="https://xlikai.github.io/search" method="get">
-                <input type="text" name="q" placeholder="搜索笔记..." required>
-                <button type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button>
-            </form>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://xlikai.github.io/posts" title="学习笔记">
-                    <span>学习笔记</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://xlikai.github.io/link" title="项目记录">
-                    <span>项目记录</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://xlikai.github.io/monthly" title="每月记录">
-                    <span>每月记录</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://xlikai.github.io/about" title=" 关于 ">
-                    <span> 关于 </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main"> 
-<header class="page-header">
-  <h1>
-    Shell
-  </h1>
-</header>
-
-<div class="posts-wrapper">
-
-  <article class="post-entry tag-entry" data-timestamp="1768790880"> 
-    <header class="entry-header">
-      <h2 class="entry-hint-parent">Shell练习2-2
-      </h2>
+            <div class="home-search">
+                <form action="https://xlikai.github.io/search" method="get">
+                    <input type="text" name="q" placeholder="搜索笔记..." required>
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <ul id="menu">
+                <li>
+                    <a href="https://xlikai.github.io/posts" title="学习笔记">
+                        <span>学习笔记</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://xlikai.github.io/link" title="项目记录">
+                        <span>项目记录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://xlikai.github.io/monthly" title="每月记录">
+                        <span>每月记录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://xlikai.github.io/about" title=" 关于 ">
+                        <span> 关于 </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <div class="entry-content">
-      <p>在日常的 Shell 操作中，我们经常需要在深层级的目录之间来回切换。The Missing Semester of Your CS Education 2-2 作业要求编写一个脚本，实现 marco 保存当前目录和 polo 跳转回保存的目录。
-脚本源码 可以直接下载或复制以下代码到 /home/vsat/marco.sh：
-#!/bin/bash declare -A MARCO_DIRS MARCO_DEFAULT=&#34;default&#34; MARCO_HISTORY_FILE=&#34;$HOME/.marco_history&#34; # 1. 持久化加载：启动时读取历史记录 if [[ -f &#34;$MARCO_HISTORY_FILE&#34; ]]; then while IFS=: read -r tag path; do # 简单校验目录是否存在 if [[ -d &#34;$path&#34; ]]; then MARCO_DIRS[&#34;$tag&#34;]=&#34;$path&#34; fi done &lt; &#34;$MARCO_HISTORY_FILE&#34; fi # 内部辅助函数：保存历史记录到文件（重写模式，实现清理） _marco_save_history() { # 确保文件存在（如果是空的） : &gt; &#34;$MARCO_HISTORY_FILE&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do echo &#34;$tag:${MARCO_DIRS[$tag]}&#34; &gt;&gt; &#34;$MARCO_HISTORY_FILE&#34; done } marco(){ local tag=&#34;${1:-$MARCO_DEFAULT}&#34; local current_dir=&#34;$(pwd)&#34; MARCO_DIRS[&#34;$tag&#34;]=&#34;$current_dir&#34; # 调用优化后的保存函数（去重、清理） _marco_save_history echo &#34;✓ Marco[$tag]: 已保存 → $current_dir&#34; echo &#34; 可用标签: ${!MARCO_DIRS[@]}&#34; } polo() { local tag=&#34;${1:-$MARCO_DEFAULT}&#34; # 如果没有指定标签，使用默认 if [[ -z &#34;${MARCO_DIRS[$tag]}&#34; ]]; then echo &#34;✗ Polo[$tag]: 错误！该标签未保存任何目录&#34; echo &#34; 可用的标签: ${!MARCO_DIRS[@]}&#34; return 1 fi local target_dir=&#34;${MARCO_DIRS[$tag]}&#34; if [[ ! -d &#34;$target_dir&#34; ]]; then echo &#34;✗ Polo[$tag]: 错误！目录不存在: $target_dir&#34; # 从数组中移除无效条目并同步到文件 unset MARCO_DIRS[&#34;$tag&#34;] _marco_save_history return 1 fi if cd &#34;$target_dir&#34;; then echo &#34;✓ Polo[$tag]: 已跳转到 → $(pwd)&#34; else echo &#34;✗ Polo[$tag]: 跳转失败！无权限访问&#34; return 1 fi } # 查看所有保存的目录 marco_list() { if [[ ${#MARCO_DIRS[@]} -eq 0 ]]; then echo &#34;📌 还没有保存任何目录&#34; return fi echo &#34;📌 已保存的目录标签:&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do if [[ &#34;$tag&#34; == &#34;$MARCO_DEFAULT&#34; ]]; then echo &#34; ★ $tag → ${MARCO_DIRS[$tag]}&#34; else echo &#34; $tag → ${MARCO_DIRS[$tag]}&#34; fi done } # 清除指定标签或所有标签 marco_clear() { local tag=&#34;${1}&#34; if [[ -z &#34;$tag&#34; ]]; then echo &#34;⚠️ 用法错误：请指定要清除的标签，或使用 &#39;all&#39; 清除所有&#34; echo &#34; 示例：&#34; echo &#34; marco_clear work # 清除work标签&#34; echo &#34; marco_clear all # 清除所有标签&#34; echo &#34; 当前可用标签：${!MARCO_DIRS[@]}&#34; return 1 fi if [[ &#34;$tag&#34; == &#34;all&#34; ]]; then # 增加二次确认，进一步防止误操作 read -p &#34;⚠️ 确认要清除所有保存的目录吗？(y/N) &#34; confirm if [[ &#34;$confirm&#34; =~ ^[Yy]$ ]]; then MARCO_DIRS=() _marco_save_history echo &#34;✓ 已清除所有保存的目录&#34; else echo &#34;✗ 操作已取消&#34; fi elif [[ -n &#34;${MARCO_DIRS[$tag]}&#34; ]]; then unset MARCO_DIRS[&#34;$tag&#34;] _marco_save_history echo &#34;✓ 已清除标签: $tag&#34; else echo &#34;✗ 标签不存在: $tag&#34; echo &#34; 当前可用标签：${!MARCO_DIRS[@]}&#34; fi } # 2. Tab 自动补全 _polo_completion() { local cur cur=&#34;${COMP_WORDS[COMP_CWORD]}&#34; # 获取所有的 key local tags=&#34;${!MARCO_DIRS[@]}&#34; # 生成补全列表 COMPREPLY=( $(compgen -W &#34;${tags}&#34; -- ${cur}) ) } # 绑定补全函数 complete -F _polo_completion polo complete -F _polo_completion marco_clear 编写思路与解析 1. 核心数据结构：关联数组 脚本核心依赖于 declare -A MARCO_DIRS，这是一个关联数组（Associative Array），键是标签（tag），值是绝对路径。这比简单的两个变量提供了极大的灵活性，允许我们保存多个位置。
-...</p>
-    </div>
-    <footer class="entry-footer"><span title='2026-01-19 10:48:00 +0800 CST'>January 19, 2026</span>&nbsp;·&nbsp;<span>xlikai</span></footer>
-    <a class="entry-link" aria-label="post link to Shell练习2-2" href="https://xlikai.github.io/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/"></a>
-  </article>
-</div>
-            </main>
-            
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://xlikai.github.io/">xlikai的博客</a></span> · 
+    <main class="main">
+        <header class="page-header">
+            <h1>
+                Shell
+            </h1>
+        </header>
 
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a><script src="https://xlikai.github.io/%20js/adaptive-bg.js"></script>
+        <div class="posts-wrapper">
 
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
+            <article class="post-entry tag-entry" data-timestamp="1768790880">
+                <header class="entry-header">
+                    <h2 class="entry-hint-parent">Shell练习2-2
+                    </h2>
+                </header>
+                <div class="entry-content">
+                    <p>在日常的 Shell 操作中，我们经常需要在深层级的目录之间来回切换。The Missing Semester of Your CS Education 2-2 作业要求编写一个脚本，实现
+                        marco 保存当前目录和 polo 跳转回保存的目录。
+                        脚本源码 可以直接下载或复制以下代码到 /home/vsat/marco.sh：
+                        #!/bin/bash declare -A MARCO_DIRS MARCO_DEFAULT=&#34;default&#34;
+                        MARCO_HISTORY_FILE=&#34;$HOME/.marco_history&#34; # 1. 持久化加载：启动时读取历史记录 if [[ -f
+                        &#34;$MARCO_HISTORY_FILE&#34; ]]; then while IFS=: read -r tag path; do # 简单校验目录是否存在 if [[ -d
+                        &#34;$path&#34; ]]; then MARCO_DIRS[&#34;$tag&#34;]=&#34;$path&#34; fi done &lt;
+                        &#34;$MARCO_HISTORY_FILE&#34; fi # 内部辅助函数：保存历史记录到文件（重写模式，实现清理） _marco_save_history() { #
+                        确保文件存在（如果是空的） : &gt; &#34;$MARCO_HISTORY_FILE&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do
+                        echo &#34;$tag:${MARCO_DIRS[$tag]}&#34; &gt;&gt; &#34;$MARCO_HISTORY_FILE&#34; done } marco(){
+                        local tag=&#34;${1:-$MARCO_DEFAULT}&#34; local current_dir=&#34;$(pwd)&#34;
+                        MARCO_DIRS[&#34;$tag&#34;]=&#34;$current_dir&#34; # 调用优化后的保存函数（去重、清理） _marco_save_history echo
+                        &#34;✓ Marco[$tag]: 已保存 → $current_dir&#34; echo &#34; 可用标签: ${!MARCO_DIRS[@]}&#34; } polo() {
+                        local tag=&#34;${1:-$MARCO_DEFAULT}&#34; # 如果没有指定标签，使用默认 if [[ -z &#34;${MARCO_DIRS[$tag]}&#34;
+                        ]]; then echo &#34;✗ Polo[$tag]: 错误！该标签未保存任何目录&#34; echo &#34; 可用的标签: ${!MARCO_DIRS[@]}&#34;
+                        return 1 fi local target_dir=&#34;${MARCO_DIRS[$tag]}&#34; if [[ ! -d &#34;$target_dir&#34; ]];
+                        then echo &#34;✗ Polo[$tag]: 错误！目录不存在: $target_dir&#34; # 从数组中移除无效条目并同步到文件 unset
+                        MARCO_DIRS[&#34;$tag&#34;] _marco_save_history return 1 fi if cd &#34;$target_dir&#34;; then
+                        echo &#34;✓ Polo[$tag]: 已跳转到 → $(pwd)&#34; else echo &#34;✗ Polo[$tag]: 跳转失败！无权限访问&#34; return 1
+                        fi } # 查看所有保存的目录 marco_list() { if [[ ${#MARCO_DIRS[@]} -eq 0 ]]; then echo &#34;📌
+                        还没有保存任何目录&#34; return fi echo &#34;📌 已保存的目录标签:&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do
+                        if [[ &#34;$tag&#34; == &#34;$MARCO_DEFAULT&#34; ]]; then echo &#34; ★ $tag →
+                        ${MARCO_DIRS[$tag]}&#34; else echo &#34; $tag → ${MARCO_DIRS[$tag]}&#34; fi done } # 清除指定标签或所有标签
+                        marco_clear() { local tag=&#34;${1}&#34; if [[ -z &#34;$tag&#34; ]]; then echo &#34;⚠️
+                        用法错误：请指定要清除的标签，或使用 &#39;all&#39; 清除所有&#34; echo &#34; 示例：&#34; echo &#34; marco_clear work #
+                        清除work标签&#34; echo &#34; marco_clear all # 清除所有标签&#34; echo &#34; 当前可用标签：${!MARCO_DIRS[@]}&#34;
+                        return 1 fi if [[ &#34;$tag&#34; == &#34;all&#34; ]]; then # 增加二次确认，进一步防止误操作 read -p &#34;⚠️
+                        确认要清除所有保存的目录吗？(y/N) &#34; confirm if [[ &#34;$confirm&#34; =~ ^[Yy]$ ]]; then MARCO_DIRS=()
+                        _marco_save_history echo &#34;✓ 已清除所有保存的目录&#34; else echo &#34;✗ 操作已取消&#34; fi elif [[ -n
+                        &#34;${MARCO_DIRS[$tag]}&#34; ]]; then unset MARCO_DIRS[&#34;$tag&#34;] _marco_save_history echo
+                        &#34;✓ 已清除标签: $tag&#34; else echo &#34;✗ 标签不存在: $tag&#34; echo &#34;
+                        当前可用标签：${!MARCO_DIRS[@]}&#34; fi } # 2. Tab 自动补全 _polo_completion() { local cur
+                        cur=&#34;${COMP_WORDS[COMP_CWORD]}&#34; # 获取所有的 key local tags=&#34;${!MARCO_DIRS[@]}&#34; #
+                        生成补全列表 COMPREPLY=( $(compgen -W &#34;${tags}&#34; -- ${cur}) ) } # 绑定补全函数 complete -F
+                        _polo_completion polo complete -F _polo_completion marco_clear 编写思路与解析 1. 核心数据结构：关联数组 脚本核心依赖于
+                        declare -A MARCO_DIRS，这是一个关联数组（Associative
+                        Array），键是标签（tag），值是绝对路径。这比简单的两个变量提供了极大的灵活性，允许我们保存多个位置。
+                        ...</p>
+                </div>
+                <footer class="entry-footer"><span title='2026-01-19 10:48:00 +0800 CST'>January 19,
+                        2026</span>&nbsp;·&nbsp;<span>xlikai</span></footer>
+                <a class="entry-link" aria-label="post link to Shell练习2-2"
+                    href="https://xlikai.github.io/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/"></a>
+            </article>
+        </div>
+    </main>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+    <footer class="footer">
+        <span>&copy; 2026 <a href="https://xlikai.github.io/">xlikai的博客</a></span> ·
+
+        <span>
+            Powered by
+            <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+            <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        </span>
+    </footer>
+    <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </a>
+    <script src="https://xlikai.github.io/%20js/adaptive-bg.js"></script>
+
+    <script>
+        let menu = document.getElementById('menu');
+        if (menu) {
+
+            const scrollPosition = localStorage.getItem("menu-scroll-position");
+            if (scrollPosition) {
+                menu.scrollLeft = parseInt(scrollPosition, 10);
             }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
+
+            menu.onscroll = function () {
+                localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                var id = this.getAttribute("href").substr(1);
+                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                } else {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+                }
+                if (id === "top") {
+                    history.replaceState(null, null, " ");
+                } else {
+                    history.pushState(null, null, `#${id}`);
+                }
+            });
+        });
+
+    </script>
+    <script>
+        var mybutton = document.getElementById("top-link");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+                mybutton.style.visibility = "visible";
+                mybutton.style.opacity = "1";
             } else {
-                history.pushState(null, null, `#${id}`);
+                mybutton.style.visibility = "hidden";
+                mybutton.style.opacity = "0";
+            }
+        };
+
+    </script>
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+            const html = document.querySelector("html");
+            if (html.dataset.theme === "dark") {
+                html.dataset.theme = 'light';
+                localStorage.setItem("pref-theme", 'light');
+            } else {
+                html.dataset.theme = 'dark';
+                localStorage.setItem("pref-theme", 'dark');
+            }
+        })
+
+    </script>
+    <button id="top-link" aria-label="go to top" title="Go to Top (Alt + G)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+
+    <style>
+        #top-link {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 99999;
+            cursor: pointer;
+            animation: fadeIn 0.5s;
+            background: var(--tertiary);
+            color: var(--theme);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        #top-link:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+        }
+
+        #top-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', function () {
+
+            const mainContent = document.querySelector('.main-content');
+            const myButton = document.getElementById("top-link");
+
+            if (!myButton) return;
+
+
+            function checkScroll(scrollTop) {
+                if (scrollTop > 400) {
+                    myButton.style.display = "flex";
+                } else {
+                    myButton.style.display = "none";
+                }
+            }
+
+            if (mainContent) {
+
+
+                mainContent.onscroll = function () {
+                    checkScroll(mainContent.scrollTop);
+                };
+
+                myButton.onclick = function () {
+                    mainContent.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                };
             }
         });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<button id="top-link" aria-label="go to top" title="Go to Top (Alt + G)">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</button>
-
-<style>
-    #top-link {
-        display: none;
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 99999;
-        cursor: pointer;
-        animation: fadeIn 0.5s;
-        background: var(--tertiary);
-        color: var(--theme);
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: transform 0.2s, background-color 0.3s;
-    }
-
-    #top-link:hover {
-        transform: scale(1.1);
-        background: var(--primary);
-    }
-
-    #top-link svg {
-        width: 14px;
-        height: 14px;
-        fill: currentColor;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-</style>
-
-<script>
-    window.addEventListener('load', function () {
-        
-        const mainContent = document.querySelector('.main-content');
-        const myButton = document.getElementById("top-link");
-
-        if (!myButton) return;
-
-        
-        function checkScroll(scrollTop) {
-            if (scrollTop > 400) {
-                myButton.style.display = "flex";
-            } else {
-                myButton.style.display = "none";
-            }
-        }
-
-        if (mainContent) {
-            
-            
-            mainContent.onscroll = function () {
-                checkScroll(mainContent.scrollTop);
-            };
-
-            myButton.onclick = function () {
-                mainContent.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            };
-        });
-</script></body>
+    </script>
+</body>
 
 </html>
