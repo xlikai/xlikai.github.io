@@ -261,29 +261,6 @@
     <a class="entry-link" aria-label="post link to Shell练习2-2" href="http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2/"></a>
   </article>
 
-  <article class="post-entry" data-timestamp="1767856943"> 
-<figure class="entry-cover">
-            <img loading="lazy"
-                srcset='http://localhost:1313/posts/linux/y-dl-copy/linux_hu_56db5eefc55445ff.png 360w,http://localhost:1313/posts/linux/y-dl-copy/linux_hu_6dbfbb844fa48092.png 480w,http://localhost:1313/posts/linux/y-dl-copy/linux_hu_69f61edd44ce3678.png 720w,http://localhost:1313/posts/linux/y-dl-copy/linux.png 1057w'
-                src="http://localhost:1313/posts/linux/y-dl-copy/linux.png"
-                sizes="(min-width: 768px) 720px, 100vw"
-                width="1057" height="1280"
-                alt="Linux选择">
-</figure>
-    <header class="entry-header">
-      <h2 class="entry-hint-parent">Linux学习笔记
-      </h2>
-    </header>
-    <div class="entry-content">
-      <p>为什么选择 Linux 跑深度学习？ 在Windows下配置深度学习环境经常遇到路径冲突、版本冲突和驱动问题。通过 WSL2可以在保留Windows日常办公方便性的同时，拥有Linux原生的开发体验，以便过度到Linux系统，选择理由如下：
-一、 四种主流安装方案 安装方式 所需软件/硬件条件 优点 缺点 适用场景 1. WSL2 (Windows子系统) Win10/11, 开启虚拟化, 建议16G内存 无需重启切换系统，文件互通，性能损耗极小 GUI（图形界面）配置较繁琐，部分底层硬件驱动受限 兼顾办公与深度学习开发 2. 双系统 (Dual Boot) 独立磁盘分区 (50G&#43;), U盘启动盘 完全释放硬件性能，独立环境 切换系统需重启，安装风险较高（易引导损坏） 适合长时间训练大型模型 3. 虚拟机 (VMware/VBox) 强劲CPU, 32G&#43;内存, 开启虚拟化 安全、随便折腾、可快照备份 无法直接调用NVIDIA显卡，性能损耗大 仅限学习Linux基础命令，不适合深度学习 4. Docker容器 已装好的Linux或WSL2 环境隔离，防止配坏驱动，方便部署 有一定学习成本 团队协作、多版本框架切换 二、 方案优缺点分析 1. WSL2 (Windows Subsystem for Linux 2) —— 推荐新手/混合开发 微软近年来力推的方案，在Windows内运行一个Linux内核。
-硬件要求：普通的现代Windows电脑，需在BIOS里开启 Virtualization（虚拟化）。 软件要求：Windows 10 版本 19041 或更高，Windows 11。 优势：WSL2已完美支持NVIDIA CUDA。可在Windows里装好显卡驱动，WSL2里的Ubuntu能直接调用GPU进行训练。 2. 双系统 (Windows &#43; Ubuntu) —— 推荐专业开发者 硬盘上划一块给Linux，开机时选择进入哪个系统。
-...</p>
-    </div>
-    <footer class="entry-footer"><span title='2026-01-08 15:22:23 +0800 CST'>January 8, 2026</span>&nbsp;·&nbsp;<span>XY</span></footer>
-    <a class="entry-link" aria-label="post link to Linux学习笔记" href="http://localhost:1313/posts/linux/y-dl-copy/"></a>
-  </article>
-
   <article class="post-entry" data-timestamp="1767770543"> 
 <figure class="entry-cover">
             <img loading="lazy"
@@ -305,29 +282,6 @@
     </div>
     <footer class="entry-footer"><span title='2026-01-07 15:22:23 +0800 CST'>January 7, 2026</span>&nbsp;·&nbsp;<span>XY</span></footer>
     <a class="entry-link" aria-label="post link to Linux学习笔记" href="http://localhost:1313/posts/linux/y-dl/"></a>
-  </article>
-
-  <article class="post-entry" data-timestamp="1737254880"> 
-<figure class="entry-cover">
-            <img loading="lazy"
-                srcset='http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2-copy/shell_hu_d1762b4139392e16.png 360w,http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2-copy/shell.png 371w'
-                src="http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2-copy/shell.png"
-                sizes="(min-width: 768px) 720px, 100vw"
-                width="371" height="157"
-                alt="">
-</figure>
-    <header class="entry-header">
-      <h2 class="entry-hint-parent">Shell练习2-2
-      </h2>
-    </header>
-    <div class="entry-content">
-      <p>在日常的 Shell 操作中，我们经常需要在深层级的目录之间来回切换。The Missing Semester of Your CS Education 2-2 作业要求编写一个脚本，实现 marco 保存当前目录和 polo 跳转回保存的目录。
-脚本源码 可以直接下载或复制以下代码到 /home/vsat/marco.sh：
-#!/bin/bash declare -A MARCO_DIRS MARCO_DEFAULT=&#34;default&#34; MARCO_HISTORY_FILE=&#34;$HOME/.marco_history&#34; # 1. 持久化加载：启动时读取历史记录 if [[ -f &#34;$MARCO_HISTORY_FILE&#34; ]]; then while IFS=: read -r tag path; do # 简单校验目录是否存在 if [[ -d &#34;$path&#34; ]]; then MARCO_DIRS[&#34;$tag&#34;]=&#34;$path&#34; fi done &lt; &#34;$MARCO_HISTORY_FILE&#34; fi # 内部辅助函数：保存历史记录到文件（重写模式，实现清理） _marco_save_history() { # 确保文件存在（如果是空的） : &gt; &#34;$MARCO_HISTORY_FILE&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do echo &#34;$tag:${MARCO_DIRS[$tag]}&#34; &gt;&gt; &#34;$MARCO_HISTORY_FILE&#34; done } marco(){ local tag=&#34;${1:-$MARCO_DEFAULT}&#34; local current_dir=&#34;$(pwd)&#34; MARCO_DIRS[&#34;$tag&#34;]=&#34;$current_dir&#34; # 调用优化后的保存函数（去重、清理） _marco_save_history echo &#34;✓ Marco[$tag]: 已保存 → $current_dir&#34; echo &#34; 可用标签: ${!MARCO_DIRS[@]}&#34; } polo() { local tag=&#34;${1:-$MARCO_DEFAULT}&#34; # 如果没有指定标签，使用默认 if [[ -z &#34;${MARCO_DIRS[$tag]}&#34; ]]; then echo &#34;✗ Polo[$tag]: 错误！该标签未保存任何目录&#34; echo &#34; 可用的标签: ${!MARCO_DIRS[@]}&#34; return 1 fi local target_dir=&#34;${MARCO_DIRS[$tag]}&#34; if [[ ! -d &#34;$target_dir&#34; ]]; then echo &#34;✗ Polo[$tag]: 错误！目录不存在: $target_dir&#34; # 从数组中移除无效条目并同步到文件 unset MARCO_DIRS[&#34;$tag&#34;] _marco_save_history return 1 fi if cd &#34;$target_dir&#34;; then echo &#34;✓ Polo[$tag]: 已跳转到 → $(pwd)&#34; else echo &#34;✗ Polo[$tag]: 跳转失败！无权限访问&#34; return 1 fi } # 查看所有保存的目录 marco_list() { if [[ ${#MARCO_DIRS[@]} -eq 0 ]]; then echo &#34;📌 还没有保存任何目录&#34; return fi echo &#34;📌 已保存的目录标签:&#34; for tag in &#34;${!MARCO_DIRS[@]}&#34;; do if [[ &#34;$tag&#34; == &#34;$MARCO_DEFAULT&#34; ]]; then echo &#34; ★ $tag → ${MARCO_DIRS[$tag]}&#34; else echo &#34; $tag → ${MARCO_DIRS[$tag]}&#34; fi done } # 清除指定标签或所有标签 marco_clear() { local tag=&#34;${1}&#34; if [[ -z &#34;$tag&#34; ]]; then echo &#34;⚠️ 用法错误：请指定要清除的标签，或使用 &#39;all&#39; 清除所有&#34; echo &#34; 示例：&#34; echo &#34; marco_clear work # 清除work标签&#34; echo &#34; marco_clear all # 清除所有标签&#34; echo &#34; 当前可用标签：${!MARCO_DIRS[@]}&#34; return 1 fi if [[ &#34;$tag&#34; == &#34;all&#34; ]]; then # 增加二次确认，进一步防止误操作 read -p &#34;⚠️ 确认要清除所有保存的目录吗？(y/N) &#34; confirm if [[ &#34;$confirm&#34; =~ ^[Yy]$ ]]; then MARCO_DIRS=() _marco_save_history echo &#34;✓ 已清除所有保存的目录&#34; else echo &#34;✗ 操作已取消&#34; fi elif [[ -n &#34;${MARCO_DIRS[$tag]}&#34; ]]; then unset MARCO_DIRS[&#34;$tag&#34;] _marco_save_history echo &#34;✓ 已清除标签: $tag&#34; else echo &#34;✗ 标签不存在: $tag&#34; echo &#34; 当前可用标签：${!MARCO_DIRS[@]}&#34; fi } # 2. Tab 自动补全 _polo_completion() { local cur cur=&#34;${COMP_WORDS[COMP_CWORD]}&#34; # 获取所有的 key local tags=&#34;${!MARCO_DIRS[@]}&#34; # 生成补全列表 COMPREPLY=( $(compgen -W &#34;${tags}&#34; -- ${cur}) ) } # 绑定补全函数 complete -F _polo_completion polo complete -F _polo_completion marco_clear 编写思路与解析 1. 核心数据结构：关联数组 脚本核心依赖于 declare -A MARCO_DIRS，这是一个关联数组（Associative Array），键是标签（tag），值是绝对路径。这比简单的两个变量提供了极大的灵活性，允许我们保存多个位置。
-...</p>
-    </div>
-    <footer class="entry-footer"><span title='2025-01-19 10:48:00 +0800 CST'>January 19, 2025</span>&nbsp;·&nbsp;<span>xlikai</span></footer>
-    <a class="entry-link" aria-label="post link to Shell练习2-2" href="http://localhost:1313/posts/linux/shell/shell%E8%84%9A%E6%9C%AC%E4%BD%9C%E4%B8%9A2-2-copy/"></a>
   </article>
 </div>
             </main>
