@@ -1,13 +1,11 @@
 ---
-title: "Pixi 包管理器介绍与使用技巧"
+title: "Pixi 介绍与初步使用"
 date: 2026-03-18T13:30:00+08:00
 tags: ["Pixi"]
 categories: ["技术分享"]
 ---
 
-经常使用 Python 和 Conda 安装各种包和环境，包管理和环境隔离一直是一个痛点。Conda 生态虽然强大，但原生的 `conda` 速度和包的依赖性有时实在让人崩溃，而 `mamba` 虽然解决了速度问题，但在项目的依赖管理上仍不好用。Pixi 很好的解决了这些问题。
-
-最近我开始了解并使用 **Pixi**，这是一个建立在 Conda 生态基础之上的新型包管理器。今天总结一下 Pixi 的核心优势以及一些实用的使用技巧。
+经常使用 Python 和 Conda 安装各种包和环境，包管理和环境隔离一直是一个痛点。Conda 生态虽然强大，但原生的 `conda` 下载速度和包的依赖性有时实在让人崩溃，而 `mamba` 虽然解决了速度问题，但在项目的依赖管理上仍不好用，Pixi 很好的解决了这些问题。
 
 ## 什么是 Pixi？
 
@@ -39,7 +37,7 @@ powershell -ExecutionPolicy Bypass -c "irm -useb https://pixi.sh/install.ps1 | i
 安装完成后，可以在命令行使用 `pixi --version` 来验证安装的版本，之后可以使用 `pixi self-update` 命令来更新 pixi 工具。
 
 ### 自动补全
-要启用自动补全功能，请按照 shell 的下面说明进行操作。之后，重启 shell 或执行 shell 配置文件。
+要启用tab自动补全功能，请按照 shell 的下面说明进行操作。之后，重启 shell 或执行 shell 配置文件。
 
 Bash(大多数 Linux 系统的默认脚本)
 
@@ -123,7 +121,7 @@ pixi global install black
 Pixi 会将其放置在独立的隔离环境中，并将可执行文件链接到全局的 PATH 里，不污染系统环境，且运行飞快。
 
 ### 6.conda迁移与他人完美复现
-当你想用pixi的时候，就说明你常用的conda让你头疼，这个时候就要考虑环境的迁移和复现他人的代码了请参考[conda与pixi环境迁移与复现](https://emeric53.github.io/technology/conda&pixi/#conda_1)
+当你想用pixi的时候，就说明你常用的conda让你头疼，这个时候就要考虑环境的迁移和复现他人的代码了，请参考[conda与pixi环境迁移与复现](https://emeric53.github.io/technology/conda&pixi/#conda_1)
 
 
 
