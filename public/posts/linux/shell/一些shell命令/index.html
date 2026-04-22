@@ -5,12 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Categories | xlikai的博客</title>
-<meta name="keywords" content="">
-<meta name="description" content="记录VSAT的成长历程">
+<title>日常实用 Shell 技巧与命令收集 | xlikai的博客</title>
+<meta name="keywords" content="Shell, Linux">
+<meta name="description" content="在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。
+1. 从 Shell 历史文件中找出最常用的命令
+cat ~/.bash_history | awk &#39;{cmd=$0; sub(/^[ \t]&#43;/, &#34;&#34;, cmd); if(length(cmd)&gt;0) print cmd}&#39; | sort | uniq -c | sort -nr | head -20
+命令解析：
+
+cat ~/.bash_history：读取历史文件。
+awk &#39;{...}&#39;：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。
+sort：排序使相同命令相邻。
+uniq -c：统计每条命令出现次数。
+sort -nr：按总次数进行降序排列。
+head -20：只提取并显示最常用的前 20 条命令。
+">
 <meta name="author" content="xlikai">
-<link rel="canonical" href="http://localhost:1313/categories/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.96305f203bfde3d452affe015846bdd2c6303b1a4713340b20ee7203ce89e1f3.css" integrity="sha256-ljBfIDv949RSr/4BWEa90sYwOxpHEzQLIO5yA86J4fM=" rel="preload stylesheet" as="style">
+<link rel="canonical" href="http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9a521aef4683e69b91bd8c7282ca630a87ceb66be1670ff0237d1d711ad15d5a.css" integrity="sha256-mlIa70aD5puRvYxygspjCofOtmvhZw/wI30dcRrRXVo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.jpg">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -18,8 +29,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/">
 <noscript>
     <style>
         #theme-toggle,
@@ -71,19 +81,91 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/categories/">
+</script><meta property="og:url" content="http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/">
   <meta property="og:site_name" content="xlikai的博客">
-  <meta property="og:title" content="Categories">
-  <meta property="og:description" content="记录VSAT的成长历程">
+  <meta property="og:title" content="日常实用 Shell 技巧与命令收集">
+  <meta property="og:description" content="在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。
+1. 从 Shell 历史文件中找出最常用的命令 cat ~/.bash_history | awk &#39;{cmd=$0; sub(/^[ \t]&#43;/, &#34;&#34;, cmd); if(length(cmd)&gt;0) print cmd}&#39; | sort | uniq -c | sort -nr | head -20 命令解析：
+cat ~/.bash_history：读取历史文件。 awk &#39;{...}&#39;：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。 sort：排序使相同命令相邻。 uniq -c：统计每条命令出现次数。 sort -nr：按总次数进行降序排列。 head -20：只提取并显示最常用的前 20 条命令。 ">
   <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-22T16:15:00+08:00">
+    <meta property="article:modified_time" content="2026-04-22T16:15:00+08:00">
+    <meta property="article:tag" content="Shell">
+    <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="记录VSAT的成长历程">
+<meta name="twitter:title" content="日常实用 Shell 技巧与命令收集">
+<meta name="twitter:description" content="在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。
+1. 从 Shell 历史文件中找出最常用的命令
+cat ~/.bash_history | awk &#39;{cmd=$0; sub(/^[ \t]&#43;/, &#34;&#34;, cmd); if(length(cmd)&gt;0) print cmd}&#39; | sort | uniq -c | sort -nr | head -20
+命令解析：
 
+cat ~/.bash_history：读取历史文件。
+awk &#39;{...}&#39;：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。
+sort：排序使相同命令相邻。
+uniq -c：统计每条命令出现次数。
+sort -nr：按总次数进行降序排列。
+head -20：只提取并显示最常用的前 20 条命令。
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "日常实用 Shell 技巧与命令收集",
+      "item": "http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "日常实用 Shell 技巧与命令收集",
+  "name": "日常实用 Shell 技巧与命令收集",
+  "description": "在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。\n1. 从 Shell 历史文件中找出最常用的命令 cat ~/.bash_history | awk \u0026#39;{cmd=$0; sub(/^[ \\t]+/, \u0026#34;\u0026#34;, cmd); if(length(cmd)\u0026gt;0) print cmd}\u0026#39; | sort | uniq -c | sort -nr | head -20 命令解析：\ncat ~/.bash_history：读取历史文件。 awk '{...}'：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。 sort：排序使相同命令相邻。 uniq -c：统计每条命令出现次数。 sort -nr：按总次数进行降序排列。 head -20：只提取并显示最常用的前 20 条命令。 ",
+  "keywords": [
+    "Shell", "Linux"
+  ],
+  "articleBody": "在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。\n1. 从 Shell 历史文件中找出最常用的命令 cat ~/.bash_history | awk '{cmd=$0; sub(/^[ \\t]+/, \"\", cmd); if(length(cmd)\u003e0) print cmd}' | sort | uniq -c | sort -nr | head -20 命令解析：\ncat ~/.bash_history：读取历史文件。 awk '{...}'：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。 sort：排序使相同命令相邻。 uniq -c：统计每条命令出现次数。 sort -nr：按总次数进行降序排列。 head -20：只提取并显示最常用的前 20 条命令。 ",
+  "wordCount" : "44",
+  "inLanguage": "en",
+  "datePublished": "2026-04-22T16:15:00+08:00",
+  "dateModified": "2026-04-22T16:15:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "xlikai"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "xlikai的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.jpg"
+    }
+  }
+}
+</script>
 </head>
 
-    <body class="list is-list-page" id="top">
+        <body id="top">
             <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -145,21 +227,40 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="http://localhost:1313/categories/linux/">Linux <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      日常实用 Shell 技巧与命令收集
+    </h1>
+    <div class="post-meta"><span title='2026-04-22 16:15:00 +0800 CST'>April 22, 2026</span>&nbsp;·&nbsp;<span>xlikai</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。</p>
+<h2 id="1-从-shell-历史文件中找出最常用的命令">1. 从 Shell 历史文件中找出最常用的命令<a hidden class="anchor" aria-hidden="true" href="#1-从-shell-历史文件中找出最常用的命令">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat ~/.bash_history | awk <span style="color:#e6db74">&#39;{cmd=$0; sub(/^[ \t]+/, &#34;&#34;, cmd); if(length(cmd)&gt;0) print cmd}&#39;</span> | sort | uniq -c | sort -nr | head -20
+</span></span></code></pre></div><p><strong>命令解析：</strong></p>
+<ul>
+<li><code>cat ~/.bash_history</code>：读取历史文件。</li>
+<li><code>awk '{...}'</code>：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。</li>
+<li><code>sort</code>：排序使相同命令相邻。</li>
+<li><code>uniq -c</code>：统计每条命令出现次数。</li>
+<li><code>sort -nr</code>：按总次数进行降序排列。</li>
+<li><code>head -20</code>：只提取并显示最常用的前 20 条命令。</li>
 </ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/shell/">Shell</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+    </ul>
+  </footer>
+</article>
             </main>
             
 <footer class="footer">
@@ -236,6 +337,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 <button id="top-link" aria-label="go to top" title="Go to Top (Alt + G)">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

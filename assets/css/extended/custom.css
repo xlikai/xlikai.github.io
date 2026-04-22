@@ -272,7 +272,6 @@ html[data-theme='dark'] .post-entry.card {
 .post-entry .entry-content,
 .post-entry .entry-footer {
     padding-left: 20px;
-    /* 缩小内边距 */
     padding-right: 20px;
 }
 
@@ -297,6 +296,8 @@ html[data-theme='dark'] .post-entry.card {
     /* 填充剩余空间 */
     flex-shrink: 1 !important;
 }
+
+
 
 
 /* ================================================================
@@ -592,7 +593,7 @@ body.is-list-page .main {
     margin: 0 auto !important;
 
     padding: 10px !important;
-    padding-top: calc(var(--header-height)) !important;
+    padding-top: calc(var(--header-height) + 20px) !important;
 
     height: 100vh !important;
     /* 必须有高度才能滚动 */
@@ -604,7 +605,7 @@ body.is-list-page .main {
 /* New Wrapper for Masonry Columns */
 body.is-list-page .posts-wrapper {
     column-count: 2 !important;
-    column-gap: 20px !important;
+    column-gap: 15px !important;
     width: 100%;
 }
 
@@ -613,12 +614,9 @@ body.is-list-page .filter-controls {
     column-span: all !important;
     -webkit-column-span: all !important;
     display: flex;
-    margin-bottom: 20px;
-    width: 100%;
+    margin-bottom: 10px;
+    width: 80%;
 
-    /* Visual Separation from top */
-    margin-top: 10px !important;
-    padding-top: 10px !important;
 }
 
 /* 列表页标题 (Posts) 横跨三列 */
@@ -633,7 +631,7 @@ body.is-list-page .post-entry {
     display: inline-block !important;
     /* 关键：防止跨列断裂 */
     width: 100% !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
     /* 卡片垂直间距 */
     break-inside: avoid !important;
     /* 禁止卡片内部断裂 */
@@ -649,6 +647,8 @@ body.is-list-page .post-entry {
     border-radius: 12px !important;
     overflow: hidden !important;
     position: relative;
+    padding: 0 !important;
+    /* 清除PaperMod默认的巨型留白 */
 }
 
 body.is-list-page .post-entry.card .entry-link {

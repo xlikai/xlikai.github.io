@@ -6,8 +6,26 @@
     <description>Recent content in Posts on xlikai的博客</description>
     <generator>Hugo -- 0.154.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Mar 2026 13:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 16:15:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日常实用 Shell 技巧与命令收集</title>
+      <link>http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Wed, 22 Apr 2026 16:15:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;p&gt;在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。&lt;/p&gt;
+&lt;h2 id=&#34;1-从-shell-历史文件中找出最常用的命令&#34;&gt;1. 从 Shell 历史文件中找出最常用的命令&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cat ~/.bash_history | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{cmd=$0; sub(/^[ \t]+/, &amp;#34;&amp;#34;, cmd); if(length(cmd)&amp;gt;0) print cmd}&amp;#39;&lt;/span&gt; | sort | uniq -c | sort -nr | head -20
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;命令解析：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cat ~/.bash_history&lt;/code&gt;：读取历史文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;awk &#39;{...}&#39;&lt;/code&gt;：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sort&lt;/code&gt;：排序使相同命令相邻。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uniq -c&lt;/code&gt;：统计每条命令出现次数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sort -nr&lt;/code&gt;：按总次数进行降序排列。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head -20&lt;/code&gt;：只提取并显示最常用的前 20 条命令。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Pixi 介绍与初步使用</title>
       <link>http://localhost:1313/posts/pixi/pixi%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E4%BB%8B%E7%BB%8D/</link>

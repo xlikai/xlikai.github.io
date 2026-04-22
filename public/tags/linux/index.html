@@ -10,7 +10,7 @@
 <meta name="description" content="记录VSAT的成长历程">
 <meta name="author" content="xlikai">
 <link rel="canonical" href="http://localhost:1313/tags/linux/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0842d7db16db2ff789b7cf7c7e407315c086ce49a84b1c2cbff454e148925959.css" integrity="sha256-CELX2xbbL/eJt898fkBzFcCGzkmoSxwsv/RU4UiSWVk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9a521aef4683e69b91bd8c7282ca630a87ceb66be1670ff0237d1d711ad15d5a.css" integrity="sha256-mlIa70aD5puRvYxygspjCofOtmvhZw/wI30dcRrRXVo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.jpg">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -152,6 +152,20 @@
 </header>
 
 <div class="posts-wrapper">
+
+  <article class="post-entry tag-entry" data-timestamp="1776845700"> 
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">日常实用 Shell 技巧与命令收集
+      </h2>
+    </header>
+    <div class="entry-content">
+      <p>在日常的 Shell 操作中，经常会碰到或写出一些有趣且实用的命令。这篇博客用于持续记录学习过程中这些零碎的技巧，以便后续查询和使用。
+1. 从 Shell 历史文件中找出最常用的命令 cat ~/.bash_history | awk &#39;{cmd=$0; sub(/^[ \t]&#43;/, &#34;&#34;, cmd); if(length(cmd)&gt;0) print cmd}&#39; | sort | uniq -c | sort -nr | head -20 命令解析：
+cat ~/.bash_history：读取历史文件。 awk &#39;{...}&#39;：去掉行首空白，并过滤掉空行（因为历史文件可能有空行）。 sort：排序使相同命令相邻。 uniq -c：统计每条命令出现次数。 sort -nr：按总次数进行降序排列。 head -20：只提取并显示最常用的前 20 条命令。 </p>
+    </div>
+    <footer class="entry-footer"><span title='2026-04-22 16:15:00 +0800 CST'>April 22, 2026</span>&nbsp;·&nbsp;<span>xlikai</span></footer>
+    <a class="entry-link" aria-label="post link to 日常实用 Shell 技巧与命令收集" href="http://localhost:1313/posts/linux/shell/%E4%B8%80%E4%BA%9Bshell%E5%91%BD%E4%BB%A4/"></a>
+  </article>
 
   <article class="post-entry tag-entry" data-timestamp="1768790880"> 
     <header class="entry-header">
