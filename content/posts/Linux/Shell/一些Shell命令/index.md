@@ -33,7 +33,7 @@ cat ~/.bash_history | awk '{cmd=$0; sub(/^[ \t]+/, "", cmd); if(length(cmd)>0) p
 
 | 快捷键 | 功能 | 使用示例 |
 | :--- | :--- | :--- |
-| `Ctrl-R` | 模糊搜索命令历史并执行，可以使用`Tab`多选 | `Ctrl-R` → 输入关键词 → `Enter` | 
+| `Ctrl-R` | 模糊搜索命令历史并执行，使用`Tab`多选 | `Ctrl-R` → 输入关键词 → `Enter` | 
 | `Ctrl-T` | 搜索当前目录下文件并将路径插入命令行 | `vim ` → `Ctrl-T` → 选择文件 |
 | `Alt-C` | 搜索子目录并自动 `cd` 进入 | `Alt-C` → 输入目录名 → `Enter` |
 
