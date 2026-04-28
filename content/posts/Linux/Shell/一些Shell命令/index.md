@@ -1,6 +1,6 @@
 ---
-title: "日常实用 Shell 技巧与命令收集"
-date: 2026-04-22T16:15:00+08:00
+title: "日常使用的Shell命令收集"
+date: 2026-04-28T00:00:00+08:00
 tags: ["Shell", "Linux"]
 categories: ["Linux"]
 toc: true
@@ -33,7 +33,7 @@ cat ~/.bash_history | awk '{cmd=$0; sub(/^[ \t]+/, "", cmd); if(length(cmd)>0) p
 
 | 快捷键 | 功能 | 使用示例 |
 | :--- | :--- | :--- |
-| `Ctrl-R` | 模糊搜索命令历史并执行 | `Ctrl-R` → 输入关键词 → `Enter` |
+| `Ctrl-R` | 模糊搜索命令历史并执行，可以使用`Tab`多选 | `Ctrl-R` → 输入关键词 → `Enter` | 
 | `Ctrl-T` | 搜索当前目录下文件并将路径插入命令行 | `vim ` → `Ctrl-T` → 选择文件 |
 | `Alt-C` | 搜索子目录并自动 `cd` 进入 | `Alt-C` → 输入目录名 → `Enter` |
 
@@ -107,7 +107,6 @@ unalias -a      # 删除所有别名
 ```
 
 #### 4. 绕过别名执行原生命令
-有时需要跳过 `alias`（例如跳过 `rm -i` 的确认提示）：
 ```bash
 \rm 文件名          # 使用反斜杠
 command rm 文件名   # 使用 command 命令
