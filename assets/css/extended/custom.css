@@ -164,14 +164,13 @@ html {
     /* 强制开启滚动 */
     padding-right: 15px;
     /* 防止滚动条盖住内容 */
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     /* 底部留白，方便看到最后 */
 
     scrollbar-width: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    /* Increased gap between cards */
+    gap: 0px;
 }
 
 /* 响应式 */
@@ -296,7 +295,6 @@ html[data-theme='dark'] .post-entry.card {
     /* 填充剩余空间 */
     flex-shrink: 1 !important;
 }
-
 
 
 
