@@ -1,5 +1,5 @@
 ---
-title: "Shell练习2-2"
+title: "Shell设置"
 date: 2026-01-19T10:48:00+08:00
 tags: ["Shell", "Linux", ]
 categories: ["Linux"]
@@ -10,7 +10,7 @@ categories: ["Linux"]
 
 ## 脚本源码
 
-可以直接下载或复制以下代码到 `/home/vsat/marco.sh`：
+可以直接下载或复制以下代码到 `/home/marco.sh`：
 
 ```bash
 #!/bin/bash
@@ -144,42 +144,36 @@ complete -F _polo_completion polo
 complete -F _polo_completion marco_clear
 ```
 
-## 编写思路与解析
+## 解析
 
 ### 1. 核心数据结构：关联数组
-脚本核心依赖于 `declare -A MARCO_DIRS`，这是一个关联数组（Associative Array），键是标签（tag），值是绝对路径。这比简单的两个变量提供了极大的灵活性，允许我们保存多个位置。
+脚本依赖于 `declare -A MARCO_DIRS`，这是一个关联数组（Associative Array），键是标签（tag），值是绝对路径。比简单的两个变量提供了极大的灵活性，允许我们保存多个位置。
 
-### 2. 持久化存储
-**问题**：普通的变量在 Shell 关闭后就会消失。
-**解决**：
--   **保存**：定义了一个辅助函数 `_marco_save_history`。每当 `marco` 或 `marco_clear` 改变了内存中的数组时，这个函数会将整个数组**重写**到 `~/.marco_history` 文件中。重写（`>`）比追加（`>>`）更干净，能自动清理掉被删除的标签，防止无限增长。
--   **加载**：脚本开头有一段代码检查历史文件是否存在，如果存在，使用 `while read` 循环解析每一行 `tag:path`，并恢复到 `MARCO_DIRS` 数组中。
-
-### 3. 补全
-为了提高效率，脚本使用了 Bash 的 `complete` 内置命令。
+### 2. Tab 补全
+为了提高效率，使用了 Bash 的 `complete` 内置命令。
 -   `_polo_completion` 函数利用 `compgen -W` 根据当前的 `MARCO_DIRS` 键生成候选词列表。
 -   `complete -F _polo_completion polo` 将这个补全逻辑绑定到了 `polo` 命令。
 -   **效果**：输入 `polo w` 然后按下 Tab 键，Shell 会自动补全为 `polo work`。
 
-### 4. 健壮性与安全
+### 3. 健壮性与安全
 -   **目录检查**：在跳转前检查 `-d "$target_dir"`。如果目录被删除了，脚本不仅报错，还会自动清理掉无效的记录。
 -   **危险操作确认**：`marco_clear all` 会清空所有记录，因此增加了一个 `read -p`进行二次确认，防止手误。
 
-## 如何使用
+## 使用
 
-**重要：** 因为脚本需要修改当前 Shell 的环境变量（切换目录 `cd`），所以**必须**使用 `source` 或 `.` 来加载它，而不能直接运行。
+> 因为脚本需要修改当前 Shell 的环境变量（切换目录 `cd`），所以**必须**使用 `source` 或 `.` 来加载它，而不能直接运行。
 
-### 1. 加载脚本
+### 加载脚本
 可以在 `.bashrc` 或 `.zshrc` 中添加：
 ```bash
-source /home/vsat/marco.sh
+source /home/marco.sh
 ```
 或者临时加载：
 ```bash
 source ./marco.sh
 ```
 
-### 2. 基本用法
+### 基本用法
 ```bash
 # 保存目录
 cd /var/log/nginx
@@ -195,7 +189,7 @@ polo log       # 自动跳转回 /var/log/nginx
 polo proj
 ```
 
-### 3. 管理记录
+### 管理记录
 ```bash
 marco_list     # 查看所有已保存的标签
 marco_clear log # 删除 log 标签
